@@ -1,3 +1,3 @@
 # CS123-Project
 
-Suggestion Website designed to help users explore new hobbies/activities
+Suggestion website designed to help users explore new hobbies/activities
