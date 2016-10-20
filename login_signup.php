@@ -43,7 +43,9 @@ SQL;
     $userAssoc = $result->fetch_all(MYSQLI_ASSOC);
     foreach($usserAssoc as $userRow){
       if(password_verify($password, $userRow['password'])){
-        $_SESSION('login_user') = $username
+        $_SESSION['login_user'] = $username;
+      } else{
+        $error = "Invalid username or password";
       }
     }
 
