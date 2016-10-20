@@ -7,7 +7,7 @@ USE DBFull;
 DROP TABLE IF EXISTS accounts;
 CREATE TABLE accounts(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-username varchar(255) NOT NULL ,
+email varchar(255) NOT NULL ,
 password varchar(255) NOT NULL
 );
 
@@ -18,8 +18,7 @@ account_id int,
 FOREIGN KEY(account_id) REFERENCES accounts(id),
 first_name varchar(255),
 last_name varchar(255),
-age int,
-email varchar(255)
+age int
 );
 
 DROP TABLE IF EXISTS preferences;
