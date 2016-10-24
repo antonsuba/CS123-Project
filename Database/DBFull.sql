@@ -1,21 +1,24 @@
-DROP DATABASE IF EXISTS DBFull;
-CREATE DATABASE DBFull;
-USE DBFull;
+DROP DATABASE IF EXISTS cs123;
+CREATE DATABASE cs123;
+USE cs123;
 
 -------------------------------------------------------------------- User
 
-DROP TABLE IF EXISTS accounts;
-CREATE TABLE accounts(
+DROP TABLE IF EXISTS users;
+CREATE TABLE users(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 email varchar(255) NOT NULL ,
-password varchar(255) NOT NULL
+password varchar(255) NOT NULL,
+remember_token varchar(100),
+updated_at TIMESTAMP,
+created_at TIMESTAMP
 );
 
 DROP TABLE IF EXISTS profiles;
 CREATE TABLE profiles(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 account_id int,
-FOREIGN KEY(account_id) REFERENCES accounts(id),
+FOREIGN KEY(account_id) REFERENCES users(id),
 first_name varchar(255),
 last_name varchar(255),
 age int
