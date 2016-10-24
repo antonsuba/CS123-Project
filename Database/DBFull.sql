@@ -21,7 +21,9 @@ account_id int,
 FOREIGN KEY(account_id) REFERENCES users(id),
 first_name varchar(255),
 last_name varchar(255),
-age int
+age int,
+updated_at TIMESTAMP,
+created_at TIMESTAMP
 );
 
 DROP TABLE IF EXISTS preferences;
