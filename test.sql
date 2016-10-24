@@ -42,3 +42,5 @@ FOREIGN KEY(profile_id) REFERENCES profiles(id),
 preference_id int,
 FOREIGN KEY(preference_id) REFERENCES preferences(id)
 );
+
+/* uy Hacktoberfest */
