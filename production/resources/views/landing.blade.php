@@ -8,17 +8,63 @@
         <title>{{ config('app.name') }}</title>
         
         <link href="/css/style.css" rel="stylesheet">
-        <link href="/css/flexboxgrid.min.css" rel="stylesheet">
+		<link href="/css/semantic.css" rel="stylesheet">
     </head>
 
     <body>
-        <div class="section group">
-            <div class="col span_8_of_12">
+	<!--Top-Mid Portion of the Page-->
+        <div class="ui grid container">
+            <div class="ten wide column">
                 <h1 class="head-font title-logo">
                     <span class="color-yellow">W</span><span class="color-red">I</span><span class="color-blue">L</span><span class="color-green">D</span>
                     CARD
                 </h1>
             </div>
+			
+			<div class="six wide column">
+				<div>
+					<button class="ui button facebook-button">FACEBOOK</button>
+				</div>
+				
+				<div class="or-text">
+					<h3>------------OR-------------</h3>
+				</div>
+				
+				<!--SIGN UP-->
+				<div class="sign-up-group">
+					<div class="ui input">
+						<input placeholder="NAME">
+					</div>
+				</div>
+				
+				<div class="sign-up-group">
+					<div class="ui input">
+						<input placeholder="EMAIL">
+					</div>
+				</div>
+					
+				<div class="sign-up-group">
+					<div class="ui input">
+						<input placeholder="PASSWORD">
+					</div>
+				</div>
+				
+				<div>
+					<button class="ui button">SIGN UP</button>
+				</div>
+				
+			</div>
         </div>
+	<!--"Sign in" Portion of the Page-->
+		<div class="div-bottom-landing">
+			<div class="already-text">
+				<h2>
+					Already Have An Account?
+				</h2>
+			</div>
+			<div>
+				<button class="ui button login-button">Login</button>
+			</div>
+		</div>
     </body>
 </html>
