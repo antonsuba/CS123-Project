@@ -13,49 +13,56 @@
 
     <body>
 	<!--Top-Mid Portion of the Page-->
-        <div class="ui grid container">
-            <div class="ten wide column">
+        <div class="ui grid centered middle aligned stackable">
+            <div class="seven wide column">
                 <h1 class="head-font title-logo">
                     <span class="color-yellow">W</span><span class="color-red">I</span><span class="color-blue">L</span><span class="color-green">D</span>
                     CARD
                 </h1>
             </div>
 			
-			<div class="six wide column">
-				<div>
-					<button class="ui button facebook-button">FACEBOOK</button>
-				</div>
-				
-				<div class="or-text">
-					<h3>------------OR-------------</h3>
-				</div>
-				
-				<!--SIGN UP-->
-				<div class="sign-up-group">
-					<div class="ui input">
-						<input placeholder="NAME">
-					</div>
-				</div>
-				
-				<div class="sign-up-group">
-					<div class="ui input">
-						<input placeholder="EMAIL">
-					</div>
-				</div>
-					
-				<div class="sign-up-group">
-					<div class="ui input">
-						<input placeholder="PASSWORD">
-					</div>
-				</div>
-				
-				<div>
-					<button class="ui button">SIGN UP</button>
-				</div>
-				
+			<div class="five wide column">
+                <div class="ui grid centered aligned">
+                <div class="ten wide column">
+                    <button class="ui facebook button fluid">
+                    <i class="facebook icon"></i>
+                    Facebook
+                    </button>
+                    
+                    <div class="ui horizontal divider">Or</div>
+                    
+                    <!--SIGN UP-->
+                    <div class="sign-up-group">
+                        <div class="ui input fluid">
+                            <input placeholder="NAME">
+                        </div>
+                    </div>
+                    
+                    <div class="sign-up-group">
+                        <div class="ui input fluid">
+                            <input placeholder="EMAIL">
+                        </div>
+                    </div>
+                        
+                    <div class="sign-up-group">
+                        <div class="ui input fluid">
+                            <input placeholder="PASSWORD">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button class="ui button fluid">SIGN UP</button>
+                    </div>
+
+                    <div class="ui divider"></div>
+                    
+			    </div>
+			    </div>		
 			</div>
+
         </div>
-	<!--"Sign in" Portion of the Page-->
+
+	    <!--"Sign in" Portion of the Page-->
 		<div class="div-bottom-landing">
 			<div class="already-text">
 				<h2>

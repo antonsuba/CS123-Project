@@ -4,15 +4,12 @@
 /********** Boiler Plate CSS ************/
 body {
     background-color: #f3f3f3;
+	font-family: 'Titillium Web', sans-serif;
 }
 
 .head-font{
     font-family: 'Montserrat', sans-serif;
     color: #716b6b;
-}
-
-.body-font{
-    font-family: 'Titillium Web', sans-serif;
 }
 
 .color-yellow{
@@ -72,7 +69,6 @@ Sign in portion of Landing page
 	top: 80%;
 	padding-right: 100%;
 	padding-bottom: 20%;
-	background-color: pink;
 }
 
 .already-text{
