@@ -1,10 +1,11 @@
-@import 'https://fonts.googleapis.com/css?family=Titillium+Web';
+@import 'https://fonts.googleapis.com/css?family=Hind';
 @import 'https://fonts.googleapis.com/css?family=Montserrat';
 
 /********** Boiler Plate CSS ************/
 body {
-    background-color: #f3f3f3;
-	font-family: 'Titillium Web', sans-serif;
+    /*background-color: #f3f3f3;*/
+	font-family: 'Hind', sans-serif;
+	font-size: 1.1em;
 }
 
 .head-font{
@@ -44,9 +45,6 @@ Log-in by Facebook and Sign up portion of Landing page
 	position: fixed;
 	top: 25%;
 	left: 66%;
-}
-
-.facebook-button{
 }
 
 .or-text{
