@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS cs123;
 CREATE DATABASE cs123;
 USE cs123;
 
--------------------------------------------------------------------- User
+-- ------------------------------------------------------------------ User
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE users(
@@ -17,7 +17,7 @@ updated_at TIMESTAMP,
 created_at TIMESTAMP
 );
 
-DROP TABLE IF EXISTS availPref;
+DROP TABLE IF EXISTS avail_prefs;
 CREATE TABLE availPref(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 preference_id int,
@@ -40,12 +40,12 @@ CREATE TABLE preferences(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 name varchar(255),
 category_id int,
-FOREIGN KEY(category_id) REFERENCES categories(id)
+FOREIGN KEY(category_id) REFERENCES categories(id),
 updated_at TIMESTAMP,
 created_at TIMESTAMP
 );
 
----------------------------------------------------------------------- Suggestions
+-- -------------------------------------------------------------------- Suggestions
 
 DROP TABLE IF EXISTS suggestions;
 CREATE TABLE suggestions(
@@ -58,7 +58,7 @@ updated_at TIMESTAMP,
 created_at TIMESTAMP
 );
 
-DROP TABLE IF EXISTS preferenceSuggestion;
+DROP TABLE IF EXISTS preference_suggestions;
 CREATE TABLE preferenceSuggestions(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 preference_id int,
@@ -66,10 +66,10 @@ FOREIGN KEY(preference_id) REFERENCES preferences(id),
 suggestion_id int,
 FOREIGN KEY(suggestion_id) REFERENCES suggestions(id),
 updated_at TIMESTAMP,
-created_at TIMESTAMP,
+created_at TIMESTAMP
 );
 
-DROP TABLE IF EXISTS userCreates;
+DROP TABLE IF EXISTS user_creates;
 CREATE TABLE userCreates(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT REFERENCES suggestions (id),
 created_by varchar(255),
@@ -91,7 +91,7 @@ id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 account_id int,
 FOREIGN KEY(account_id) REFERENCES accounts(id),
 category_id int,
-FOREIGN KEY(category_id) REFERENCES categories(id)
+FOREIGN KEY(category_id) REFERENCES categories(id),
 updated_at TIMESTAMP,
 created_at TIMESTAMP
 );
