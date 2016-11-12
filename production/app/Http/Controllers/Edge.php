@@ -43,6 +43,7 @@ class Edge extends Unit
 
         $this->linkToNode($inputNode, 1);
         $this->linkToNode($outputNode, -1);
+        return $this;
     }
 
     public function setDistance($distance){
@@ -75,6 +76,6 @@ class Edge extends Unit
             return;
         }
 
-        
+
     }
 }
