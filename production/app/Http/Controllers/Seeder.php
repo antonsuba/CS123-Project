@@ -22,10 +22,14 @@ class Seeder extends Controller
         );
 
         foreach($categories as $category){
-            $model = new Category;
-            $model->name = $category['name'];
+            $check = Category::where('name', '=', $category['name'])->first();
 
-            $model->save();
+            if($check === null){
+                $model = new Category;
+                $model->name = $category['name'];
+
+                $model->save();
+            }
         }
 
         echo 'Category population successful';
@@ -36,7 +40,7 @@ class Seeder extends Controller
             ['name' => 'Degustation', 'category_id' => '1'],
             ['name' => 'Italian', 'category_id' => '2'],
             ['name' => 'Mexican', 'category_id' => '2'],
-            ['name' => 'Comedy Bar', 'category_id' => '3'],
+            ['name' => 'Rooftop Bar', 'category_id' => '3'],
             ['name' => 'Speakeasy', 'category_id' => '3'],
             ['name' => 'Football', 'category_id' => '4'],
             ['name' => 'Archery', 'category_id' => '4'],
@@ -45,11 +49,15 @@ class Seeder extends Controller
         );
 
         foreach($preferences as $preference){
-            $model = new Preference;
-            $model->name = $preference['name'];
-            $model->category_id = $preference['category_id'];
+            $check = Preference::where('name', '=', $preference['name'])->first();
 
-            $model->save();
+            if($check === null){
+                $model = new Preference;
+                $model->name = $preference['name'];
+                $model->category_id = $preference['category_id'];
+
+                $model->save();
+            }
         }
 
         echo 'Preference population successful';
@@ -57,7 +65,29 @@ class Seeder extends Controller
 
     public function populateSuggestions(){
         $suggestions = array(
-            
+            ['name' => 'The Bunk', 'rating' => 3, 'location' => 'Shaw Blvd', 'popularity' => 43, 'weight' => 9],
+            ['name' => 'Prohibition', 'rating' => 4, 'location'=> 'Greenbelt 5, Makati', 'popularity' => 72, 'weight' => 5]
         );
+
+        foreach($suggestions as $suggestion){
+            $check = Suggestion::where('name', '=', $suggestion['name'])->first();
+
+            if($check === null){
+                $model = new Suggestion;
+                $model->name = $suggestion['name'];
+                $model->rating = $suggestion['rating'];
+                $model->location = $suggestion['location'];
+                $model->popularity = $suggestion['popularity'];
+                $model->weight = $suggestion['weight'];
+
+                $model->save();
+            }
+        }
+
+        echo 'Suggestion population successful';
+    }
+
+    public function populatePrefSuggestions(){
+
     }
 }

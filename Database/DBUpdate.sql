@@ -52,8 +52,10 @@ CREATE TABLE suggestions(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 name varchar(255),
 rating int,
+location varchar(255),
 description varchar(255),
 popularity int,
+weight int,
 updated_at TIMESTAMP,
 created_at TIMESTAMP
 );
