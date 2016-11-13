@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Suggestion;
+use App\Preference;
+use App\Category;
 use App\Http\Requests;
 
 class RecommendationEngine extends Controller
@@ -15,11 +17,11 @@ class RecommendationEngine extends Controller
     }
 
     public function getSuggestions($quantity){
-        $suggestions = Suggestion;
+        
 
     }
 
-    public function getSuggestionsByCat($category, $quantity){
-        $suggestions = Suggestion::where()
+    public function getSuggestionsByCat($categoryID, $quantity){
+        
     }
 }

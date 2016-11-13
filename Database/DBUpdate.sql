@@ -58,7 +58,7 @@ updated_at TIMESTAMP,
 created_at TIMESTAMP
 );
 
-DROP TABLE IF EXISTS preference_suggestions;
+DROP TABLE IF EXISTS preference_suggestion;
 CREATE TABLE preferenceSuggestions(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 preference_id int,
