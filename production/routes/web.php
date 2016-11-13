@@ -22,3 +22,7 @@ Route::get('search',function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/seeder/popcategories', 'Seeder@populateCategories');
+Route::get('/seeder/poppreferences', 'Seeder@populatePreferences');
+Route::get('/seeder/popsuggestions', 'Seeder@populateSuggestions');
