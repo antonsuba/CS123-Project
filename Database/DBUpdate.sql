@@ -18,11 +18,13 @@ created_at TIMESTAMP
 );
 
 DROP TABLE IF EXISTS avail_prefs;
-CREATE TABLE availPref(
+CREATE TABLE avail_prefs(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id int,
 preference_id int,
 FOREIGN KEY(preference_id) REFERENCES preferences(id),
-time_stamped TIMESTAMP,
+weight int,
+time_stamp TIMESTAMP, -- Recency of activity
 updated_at TIMESTAMP,
 created_at TIMESTAMP
 );
@@ -61,7 +63,7 @@ created_at TIMESTAMP
 );
 
 DROP TABLE IF EXISTS preference_suggestion;
-CREATE TABLE preferenceSuggestions(
+CREATE TABLE preference_suggestion(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 preference_id int,
 FOREIGN KEY(preference_id) REFERENCES preferences(id),
@@ -72,7 +74,7 @@ created_at TIMESTAMP
 );
 
 DROP TABLE IF EXISTS user_creates;
-CREATE TABLE userCreates(
+CREATE TABLE user_creates(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT REFERENCES suggestions (id),
 created_by varchar(255),
 updated_at TIMESTAMP,

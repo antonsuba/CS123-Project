@@ -11,6 +11,6 @@ class Preference extends Model
     }
 
     public function suggestions(){
-        return  $this->hasMany('App\Suggestion');
+        return  $this->belongsToMany('App\Suggestion');
     }
 }

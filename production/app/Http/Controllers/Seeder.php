@@ -9,9 +9,19 @@ use App\Http\Requests;
 use App\Category;
 use App\Preference;
 use App\Suggestion;
+use App\Preference_Suggestion;
+use App\AvailPref;
 
 class Seeder extends Controller
 {
+    public function seedAll(){
+        $this->populateCategories();
+        $this->populatePreferences();
+        $this->populateSuggestions();
+        $this->populatePrefSuggestions();
+        $this->populateAvailPrefs();
+    }
+
     public function populateCategories(){
         $categories = array(
             ['name' => 'Fine Dining'],
@@ -65,6 +75,7 @@ class Seeder extends Controller
 
     public function populateSuggestions(){
         $suggestions = array(
+            ['name' => 'Sip ang Gogh', 'rating' => 5, 'location' => 'Eastwood', 'popularity' => 22, 'weight' => 7],
             ['name' => 'The Bunk', 'rating' => 3, 'location' => 'Shaw Blvd', 'popularity' => 43, 'weight' => 9],
             ['name' => 'Prohibition', 'rating' => 4, 'location'=> 'Greenbelt 5, Makati', 'popularity' => 72, 'weight' => 5]
         );
@@ -88,6 +99,35 @@ class Seeder extends Controller
     }
 
     public function populatePrefSuggestions(){
+        $prefSuggestions = array(
+            ['preference_id' => 8, 'suggestion_id' => 1],
+            ['preference_id' => 4, 'suggestion_id' => 3],
+            ['preference_id' => 5, 'suggestion_id' => 2]
+        );
 
+        foreach($prefSuggestions as $prefSuggestion){
+            $model = new Preference_Suggestion;
+            $model->preference_id = $prefSuggestion['preference_id'];
+            $model->suggestion_id = $prefSuggestion['suggestion_id'];
+
+            $model->save();
+        }
+
+        echo 'PrefSuggestions population successful';
+    }
+
+    public function populateAvailPrefs(){
+        $availprefs = array(
+            ['preference_id' => 4]
+        );
+
+        foreach($availprefs as $availpref){
+            $model = new AvailPref;
+            $model->preference_id = $availpref['preference_id'];
+
+            $model->save();
+        }
+
+        echo 'AvialPrefs population successfull';
     }
 }

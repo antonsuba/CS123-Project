@@ -19,6 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/suggestbycat/{categoryID}/{quantity}', 'RecommendationEngine@getSuggestionsByCategory');
+Route::get('/suggest/{quantity}', 'RecommendationEngine@getSuggestions');
+
+//Seeder Routes
+Route::get('/seeder/seedall', 'Seeder@seedAll');
 Route::get('/seeder/popcategories', 'Seeder@populateCategories');
 Route::get('/seeder/poppreferences', 'Seeder@populatePreferences');
 Route::get('/seeder/popsuggestions', 'Seeder@populateSuggestions');
+Route::get('/seeder/popprefsuggestions', 'Seeder@populatePrefSuggestions');
+Route::get('/seeder/popavailpref', 'Seeder@populateAvailPrefs');
