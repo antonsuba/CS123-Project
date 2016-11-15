@@ -13,15 +13,15 @@
 	</head>
 	
 	<body>
-	<div class="register-master-div">
-		<div class="seven wide column grid">
-			<h1 class="head-font title-logo">
-				<span class="color-yellow">W</span><span class="color-red">I</span><span class="color-blue">L</span><span class="color-green">D</span>
-				CARD
-			</h1>
-		</div>
-		
-		<div class="five wide column">
+	<div class="register-master-div ui centered one column grid">
+	
+		<div class="five wide column middle aligned">
+			<div class="seven wide column grid">
+				<h1 class="head-font title-logo">
+					<span class="color-yellow">W</span><span class="color-red">I</span><span class="color-blue">L</span><span class="color-green">D</span>
+					CARD
+				</h1>
+			</div>
 		<div class="ui grid centered aligned"> <!-- These 3 are used so that the buttons and inputs can be the same width as the standard width -->
 		<div class="ten wide column">
 		

@@ -13,19 +13,17 @@
 	</head>
 	
 	<body>
-	<div class="register-master-div">
-		<form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+	<div class="register-master-div ui centered one column middle aligned grid">
+		<form class="form-horizontal five wide column" role="form" method="POST" action="{{ url('/login') }}">
 			{{ csrf_field() }}
-			<div>
+			
+			<div class="five wide column">
 				<div class="seven wide column grid">
 					<h1 class="head-font title-logo">
 						<span class="color-yellow">W</span><span class="color-red">I</span><span class="color-blue">L</span><span class="color-green">D</span>
 						CARD
 					</h1>
 				</div>
-			</div>
-			
-			<div class="five wide column">
 			<div class="ui grid centered aligned"> <!-- These 3 are used so that the buttons and inputs can be the same width as the standard width -->
 			<div class="ten wide column">
 			
