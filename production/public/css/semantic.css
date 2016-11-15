@@ -1489,7 +1489,7 @@ input::selection {
 
 .ui.basic.buttons .button:hover,
 .ui.basic.button:hover {
-  background: #FFFFFF !important;
+  background: #0FFFFF !important; /* I changed this (original: FFFFFF)**********************************************************************************************************************/
   color: rgba(0, 0, 0, 0.8) !important;
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
@@ -1497,14 +1497,14 @@ input::selection {
 .ui.basic.buttons .button:focus,
 .ui.basic.button:focus {
   background: #FFFFFF !important;
-  color: rgba(0, 0, 0, 0.8) !important;
+  color: rgba(200, 200, 20, 0.8) !important; /* I changed this (original: 0,0,0,0.8)**********************************************************************************************************************/
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
-  background: #F8F8F8 !important;
-  color: rgba(0, 0, 0, 0.9) !important;
+  background: #0880F8 !important; /* I changed this (original: F8F8F8)**********************************************************************************************************************/
+  color: rgba(200, 200, 200, 0.9) !important; /* I changed this (original: 0,0,0,0.9)**********************************************************************************************************************/
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset;
 }
 
