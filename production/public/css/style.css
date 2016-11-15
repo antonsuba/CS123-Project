@@ -100,7 +100,8 @@ Sign in portion of Landing page
 	position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) }
+    transform: translate(-50%, -50%);
+	-webkit-filter: blur(0.000001px);
 }
 
 .max-input{
@@ -114,6 +115,9 @@ Sign in portion of Landing page
 .max-button{
 	margin-top: 20px;
 }
+
+/********** Search Page ****************/
+
 /*
 Delete Potentials List:
 (Landing Page)
