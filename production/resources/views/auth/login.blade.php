@@ -31,7 +31,7 @@
 			
 				<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
-					<div class="ui fluid input multi-space">
+					<div class="ui fluid input multi-space input-squeeze-fix">
 						<input placeholder="Name" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
 						@if ($errors->has('email'))
@@ -44,7 +44,7 @@
 
 				<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
-					<div class="ui input fluid">
+					<div class="ui input fluid input-squeeze-fix">
 						<input placeholder="Password" id="password" type="password" class="form-control" name="password" required>
 
 						@if ($errors->has('password'))

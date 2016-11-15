@@ -1470,7 +1470,7 @@ input::selection {
 .ui.basic.button {
   background: transparent none !important;
   color: rgba(0, 0, 0, 0.6) !important;
-  font-weight: normal;
+  font-weight: bold; /* I changed this (original: normal)**********************************************************************************************************************/
   border-radius: 0.28571429rem;
   text-transform: none;
   text-shadow: none !important;
@@ -1496,8 +1496,8 @@ input::selection {
 
 .ui.basic.buttons .button:focus,
 .ui.basic.button:focus {
-  background: #FFFFFF !important;
-  color: rgba(200, 200, 20, 0.8) !important; /* I changed this (original: 0,0,0,0.8)**********************************************************************************************************************/
+  background: #0DFDD0 !important; /* I changed this (original: FFFFFF)**********************************************************************************************************************/
+  color: rgba(200, 80, 200, 0.8) !important; /* I changed this (original: 0,0,0,0.8)**********************************************************************************************************************/
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 
