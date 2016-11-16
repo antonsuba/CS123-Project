@@ -81,7 +81,7 @@ class Seeder extends Controller
 				http://rochelleabella.com/wp-content/uploads/2016/01/IMG_9107.jpg ],
             ['name' => 'Prohibition', 'rating' => 4, 'location'=> 'Greenbelt 5, Makati', 'popularity' => 72, 'weight' => 0.2, 'img_src' =>
 				http://ph.openrice.com/userphoto/photo/0/IK/003NYH4556A6416DC655E2l.jpg ],
-			['name' => 'Gatorade - Chelsea FC Blue Pitch', 'rating' => 4, 'location' => 'Circuit Makati, Makati', 'popularity' => 55, 'weight' => 0.25,
+	    ['name' => 'Gatorade - Chelsea FC Blue Pitch', 'rating' => 4, 'location' => 'Circuit Makati, Makati', 'popularity' => 55, 'weight' => 0.25,
 				'img_src' => http://sa.kapamilya.com/absnews/abscbnnews/media/abs-cbnnews/a_images/graphics/2014/jan15_blue.jpg ]
         );
 
