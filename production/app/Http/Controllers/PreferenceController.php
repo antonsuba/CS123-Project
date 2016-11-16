@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Preference;
-use App\ProfilePreference;
+use App\AvailPref;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -28,10 +28,10 @@ class PreferenceController extends Controller
                 $pref_id = $newPref->id;
             }*/
             
-            $newPP = new ProfilePreference;
-            $newPP->profile_id = $SESSION["profile_id"];
-            $newPP->preference_id = $pref_id;
-            $newPP->save();
+            $newAP = new AvailPref;
+            $newAP->user_id = $SESSION["profile_id"];
+            $newAP->preference_id = $pref_id;
+            $newAP->save();
             //$insertPref = DB::table('profilePreferences')->insert(['profile_id' => $SESSION["profile_id"], 'preference_id' => $pref_id]);
         }
     }
