@@ -13,7 +13,7 @@
 	</head>
 	
 	<body>
-	<div class="register-master-div ui centered one column middle aligned grid">
+	<div class="register-master-div ui centered one column middle aligned grid stackable">
 		<form class="form-horizontal five wide column" role="form" method="POST" action="{{ url('/login') }}">
 			{{ csrf_field() }}
 			

@@ -12,18 +12,18 @@
     </head>
 
     <body>
-	<div class="landing-master-div"> <!-- The Div that rules them all, for positioning sake-->
+	<div class="landing-master-div ui one column middle aligned grid stackable"> <!-- The Div that rules them all, for positioning sake-->
 	
-        <div class="ui one column centered middle grid stackable">
-			<div class="middle aligned seven wide column grid">
+        <div class="ui one column centered grid stackable middle aligned">
+			<div class="seven wide column grid">
 				<h1 class="head-font title-logo">
 					<span class="color-yellow">W</span><span class="color-red">I</span><span class="color-blue">L</span><span class="color-green">D</span>
 					CARD
 				</h1>
 			</div>
 			
-			<div class="five wide column">
-				<div class="ui grid centered aligned">
+			<div class="six wide column"> <!-- Note: higher # = wider inputs-->
+				<div class="ui grid centered">
 					<div class="ten wide column">
 						<button class="ui facebook button fluid">
 						<i class="facebook icon"></i>
@@ -69,9 +69,8 @@
 					</div>
 				</div>		
 			</div>
-			
 		</div>
-		
+	
 	</div>
     </body>
 </html>

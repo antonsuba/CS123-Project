@@ -13,7 +13,7 @@
 	</head>
 	
 	<body>
-	<div class="register-master-div ui centered one column grid">
+	<div class="register-master-div ui centered one column stackable grid">
 	
 		<div class="five wide column middle aligned">
 			<div class="seven wide column grid">
