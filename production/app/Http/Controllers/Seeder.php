@@ -107,7 +107,8 @@ class Seeder extends Controller
         $prefSuggestions = array(
             ['preference_id' => 8, 'suggestion_id' => 1],
             ['preference_id' => 4, 'suggestion_id' => 3],
-            ['preference_id' => 5, 'suggestion_id' => 2]
+            ['preference_id' => 5, 'suggestion_id' => 2],
+	    ['preference_id' => 6, 'suggestion_id' => 4]
         );
 
         foreach($prefSuggestions as $prefSuggestion){
