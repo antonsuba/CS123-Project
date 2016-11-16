@@ -24,6 +24,23 @@
 			</h1>
 		</div>
 		
+		<div class="ui ten wide column grid centered"> <!-- "ten wide" for size help(optional) -->
+		
+			<div> <!-- Left Side -->
+				<div> <!-- Map Portion -->
+					<image src="http://www.pcgamesn.com/sites/default/files/Upcoming%20PC%20games%20Civilization%20VI.jpg" style="max-width:594px;max-height=334px;"> <!-- Style is preset for the sake of testing -->
+				</div>
+				<div> <!-- Image Portion -->
+					<image src="http://kingrichiespizza.com/wp-content/uploads/2015/12/d5a3498cfc9e53130b5f815ef44713b7_Jet.jpg" style="max-width:297px;max-height=167px;">
+					<image src="http://kingrichiespizza.com/wp-content/uploads/2015/12/d5a3498cfc9e53130b5f815ef44713b7_Jet.jpg" style="max-width:297px;max-height=167px;">
+				</div>
+			</div>
+			
+			<div class="detail-right"> <!-- Right Portion -->
+				Text
+			</div>
+		</div>
+		
 	</div>
 	</body>
 	

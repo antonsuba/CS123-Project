@@ -116,6 +116,13 @@ Log-in by Facebook and Sign up portion of Landing page
 	background-color: aquamarine;
 }
 
+.detail-right{
+	background-color:white;
+	width: 35%;
+	border-radius: 1rem;
+	box-shadow: 0 0 3pt 5pt grey;
+}
+
 /*
 Delete Potentials List:
 (Landing Page)
