@@ -31,12 +31,28 @@
                 <span class="title-mini">CARD</span>
             </h1>
         </div>
-        <div class="ui dropdown item">
-            <button class="ui basic button category-button">Categories</button>
-            <div class="menu">
-                @foreach($categories as $category)
-                <a class="item">{{ $category->name }}</a>
-                @endforeach
+        <div class="ui one column grid item">
+            <div class="ui floating labeled icon dropdown button">
+                <i class="filter icon"></i>
+                <span class="text">Categories</span>
+                
+                <div class="menu">
+                    <div class="header">
+                        Search Categories
+                    </div>
+                    <div class="ui left icon input">
+                        <i class="search icon"></i>
+                        <input type="text" name="search" placeholder="Search...">
+                    </div>
+
+                    <div class="header">
+                        <i class="tags icon"></i>
+                        Filter by Category
+                    </div>
+                    @foreach($categories as $category)
+                    <div class="item">{{ $category->name }}</div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
@@ -49,7 +65,12 @@
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous">
     </script>
+
     <script src="/js/semantic.min.js"></script>
+
+    <script type="text/javascript">
+        $('.ui.dropdown').dropdown();
+    </script>
 
     @yield('scripts')
 
