@@ -75,9 +75,14 @@ class Seeder extends Controller
 
     public function populateSuggestions(){
         $suggestions = array(
-            ['name' => 'Sip ang Gogh', 'rating' => 5, 'location' => 'Eastwood', 'popularity' => 22, 'weight' => 0.7],
-            ['name' => 'The Bunk', 'rating' => 3, 'location' => 'Shaw Blvd', 'popularity' => 43, 'weight' => 0.33],
-            ['name' => 'Prohibition', 'rating' => 4, 'location'=> 'Greenbelt 5, Makati', 'popularity' => 72, 'weight' => 0.2]
+            ['name' => 'Sip ang Gogh', 'rating' => 5, 'location' => 'Eastwood', 'popularity' => 22, 'weight' => 0.7, 'img_src' => 
+				http://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/43A97D6F7D034142902D48E7C6272C87/kids-and-kids-at-heart-would-enjoy-the-painting-activity-rappler-20140615.jpg ],
+            ['name' => 'The Bunk', 'rating' => 3, 'location' => 'Shaw Blvd', 'popularity' => 43, 'weight' => 0.33, 'img_src' =>
+				http://rochelleabella.com/wp-content/uploads/2016/01/IMG_9107.jpg ],
+            ['name' => 'Prohibition', 'rating' => 4, 'location'=> 'Greenbelt 5, Makati', 'popularity' => 72, 'weight' => 0.2, 'img_src' =>
+				http://ph.openrice.com/userphoto/photo/0/IK/003NYH4556A6416DC655E2l.jpg ],
+	    ['name' => 'Gatorade - Chelsea FC Blue Pitch', 'rating' => 4, 'location' => 'Circuit Makati, Makati', 'popularity' => 55, 'weight' => 0.25,
+				'img_src' => http://sa.kapamilya.com/absnews/abscbnnews/media/abs-cbnnews/a_images/graphics/2014/jan15_blue.jpg ]
         );
 
         foreach($suggestions as $suggestion){
@@ -102,7 +107,8 @@ class Seeder extends Controller
         $prefSuggestions = array(
             ['preference_id' => 8, 'suggestion_id' => 1],
             ['preference_id' => 4, 'suggestion_id' => 3],
-            ['preference_id' => 5, 'suggestion_id' => 2]
+            ['preference_id' => 5, 'suggestion_id' => 2],
+	    ['preference_id' => 6, 'suggestion_id' => 4]
         );
 
         foreach($prefSuggestions as $prefSuggestion){
