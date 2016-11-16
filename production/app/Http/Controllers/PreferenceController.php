@@ -12,20 +12,21 @@ class PreferenceController extends Controller
 {
     //preferences back end
 
-    public function addPreferences(){
+    public function submitPreferences(){
         foreach ($preferences as $preference) {
             $pref = Preference::where('name', $preference);
             
             //check if preference already exists
-            if($pref->count() > 0){
+            //if($pref->count() > 0){
                 $pref_id = $pref->id;
-            } else{
+            //} 
+            /*else{
                 //create new row for preference table
                 $newPref = new Preference;
                 $newPref->name = $preference;
                 $newPref->save();
                 $pref_id = $newPref->id;
-            }
+            }*/
             
             $newPP = new ProfilePreference;
             $newPP->profile_id = $SESSION["profile_id"];

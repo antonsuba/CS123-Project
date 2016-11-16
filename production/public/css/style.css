@@ -30,54 +30,108 @@ body {
 }
 /********** Boiler Plate CSS ************/
 
+/********** Mutli-Page ****************/
+
+.multi-space{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.input-squeeze-fix{ /* Still being tested */
+	min-width: 100%;
+}
+
+/* Since search and detail pages have just a tiny bar on top with the title unlike the other pages where WILD CARD is big and centered */
+.title-mini-bar{
+	background-color: white;
+	position: relative;
+}
+
+.title-mini{
+	font-size: 0.6em;
+}
+
+/* Just so the W is not touching the side of the page*/
+.w-push{
+	position:relative;
+	left: 20px;
+}
 
 /********** Landing Page ****************/
-.title-logo{
-    text-align: center;
-    font-size: 5.5em;
+
+.landing-master-div{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 /*
 Log-in by Facebook and Sign up portion of Landing page
 */
 
-.log-sign{
-	position: fixed;
-	top: 25%;
-	left: 66%;
+.title-logo{
+    text-align: center;
+    font-size: 5.5em;
 }
 
-.or-text{
-	margin-top: 20px;
-	top: 90px;
+/********** Register Page ****************/
+.register-master-div{
+	/* Centers the contents, contents does not use the Semantics "centered" class*/
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
-.sign-up-group{
-	top: 110px;
+.go-away-regbtn{
+	margin-bottom: 40px;
+}
+
+.max-button{
 	margin-top: 20px;
-	margin-bottom: 20px;
+}
+
+/********** Search Page ****************/
+.search-master-div{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-filter: blur(0.000001px);
+	background-color: #FFFACD;
+}
+
+.search-img{
+	height: 670px;
+	border-radius: 50px;
+}
+
+/********** Detail Page ****************/
+.detail-master-div{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: aquamarine;
+}
+
+.detail-content{
+	position: relative;
+	top: 10%;
+}
+
+.detail-right{
+	background-color:white;
+	width: 30%;
+	border-radius: 1rem;
+	box-shadow: 0 0 3pt 5pt grey;
 }
 
 /*
-Sign in portion of Landing page
+Delete Potentials List:
+(Landing Page)
+facebook-button
+div-bottom-landing
+login-button
 */
-
-.div-bottom-landing{
-	position: fixed;
-	top: 80%;
-	padding-right: 100%;
-	padding-bottom: 20%;
-}
-
-.already-text{
-	position: absolute;
-	top: 5%;
-	left: 66%;
-	white-space: nowrap;
-}
-
-.login-button{
-	position: absolute;
-	top: 15%;
-	left: 66%;
-}

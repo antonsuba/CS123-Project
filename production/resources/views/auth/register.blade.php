@@ -1,82 +1,92 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {{ csrf_field() }}
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+			<title>{{ config('app.name') }}</title>
+			
+			<link href="/css/style.css" rel="stylesheet">
+			<link href="/css/semantic.css" rel="stylesheet">
+	</head>
+	
+	<body>
+	<div class="register-master-div ui centered one column stackable grid">
+	
+		<div class="five wide column middle aligned">
+			<div class="seven wide column grid">
+				<h1 class="head-font title-logo">
+					<span class="color-yellow">W</span><span class="color-red">I</span><span class="color-blue">L</span><span class="color-green">D</span>
+					CARD
+				</h1>
+			</div>
+		<div class="ui grid centered aligned"> <!-- These 3 are used so that the buttons and inputs can be the same width as the standard width -->
+		<div class="ten wide column">
+		
+			<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+				<div class="ui input fluid multi-space">
+					<input placeholder="Name" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+					@if ($errors->has('name'))
+						<span class="help-block">
+							<strong>{{ $errors->first('name') }}</strong>
+						</span>
+					@endif
+				</div>
+			</div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+			<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+				<div class="ui input fluid">
+					<input placeholder="Email" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+					@if ($errors->has('email'))
+						<span class="help-block">
+							<strong>{{ $errors->first('email') }}</strong>
+						</span>
+					@endif
+				</div>
+			</div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+			<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+				<div class="ui input fluid multi-space">
+					<input placeholder="Password" id="password" type="password" class="form-control" name="password" required>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+					@if ($errors->has('password'))
+						<span class="help-block">
+							<strong>{{ $errors->first('password') }}</strong>
+						</span>
+					@endif
+				</div>
+			</div>
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+			<div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+				<div class="ui input fluid go-away-regbtn">
+					<input placeholder="Confirm Password" id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+					@if ($errors->has('password_confirmation'))
+						<span class="help-block">
+							<strong>{{ $errors->first('password_confirmation') }}</strong>
+						</span>
+					@endif
+				</div>
+			</div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+			<div class="form-group multi-space">
+				<button type="submit" class="btn btn-primary ui fluid button max-button">
+					Register
+				</button>
+			</div>
+
+		</div>
+		</div>
+		</div>
+		
+	</div>
+	</body>
+</html>
