@@ -18,45 +18,85 @@ class RecommendationEngine extends Controller
         $this->middleware('auth');
     }
 
-    public function getSuggestions($quantity){
-        DB::enableQueryLog();
-
-        $preferences = Preference::whereIn('preferences.id', AvailPref::get(['preference_id']))
+    public function getSuggestions($quantity, $offset){
+        $suggestions = Preference::whereIn('preferences.id', AvailPref::where('user_id', '=', auth()->user()->id)->get(['preference_id']))
                         ->join('preference_suggestion', 'preferences.id', '=', 'preference_suggestion.preference_id')
                         ->join('suggestions', 'preference_suggestion.suggestion_id', '=', 'suggestions.id')
-                        ->orderBy('weight')
+                        ->join('avail_prefs', 'preferences.id', '=', 'avail_prefs.preference_id')
+                        ->orderBy('suggestions.weight')
                         ->limit($quantity)
-                        ->get(['suggestions.id', 'suggestions.name', 'rating', 'location', 'weight']);
+                        ->offset($offset)
+                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'avail_prefs.recency_score']);
 
-        foreach($preferences as $preference){
-            echo $preference . '<br>';
-        }
-
-        print_r(auth()->user());
-
-        dd(DB::getQueryLog());
+        return $suggestions;
     }
 
-    public function getSuggestionsByCategory($categoryID, $quantity){
-        DB::enableQueryLog();
-
-        /*$preferences = Preference::where('category_id', '=', $categoryID)
-            ->with(['suggestions' => function($query){
-                $query->select('name', 'rating', 'location', 'weight');
-            }])->get(['id']);*/
-
-        $preferences = Preference::where('category_id', '=', $categoryID)
-                        ->whereIn('preferences.id', AvailPref::get(['preference_id']))
+    public function getSuggestionsByCategory($categoryID, $quantity, $offset){
+        $suggestions = Preference::where('category_id', '=', $categoryID)
+                        ->whereIn('preferences.id', AvailPref::where('user_id', '=', auth()->user()->id)->get(['preference_id']))
                         ->join('preference_suggestion', 'preferences.id', '=', 'preference_suggestion.preference_id')
                         ->join('suggestions', 'preference_suggestion.suggestion_id', '=', 'suggestions.id')
-                        ->orderBy('weight')
+                        ->join('avail_prefs', 'preferences.id', '=', 'avail_prefs.preference_id')
+                        ->orderBy('suggestions.weight')
                         ->limit($quantity)
-                        ->get(['suggestions.id', 'suggestions.name', 'rating', 'location', 'weight']);
+                        ->offset($offset)
+                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'avail_prefs.recency_score']);
 
-        foreach($preferences as $preference){
-            echo $preference . '<br>';
+        return $suggestions;
+    }
+
+    public function getRealOrder($suggestions, $threshold){
+        $newSuggestionsArray = array();
+        $passCounter = 0;
+
+        foreach($suggestions as $suggestion){
+            $realWeight = $this->calculateRealWeight($suggestion->weight, $suggestion->recency_score);
+
+            if($realWeight < $threshold){
+                $suggestion->weight = $realWeight;
+                array_push($newSuggestionsArray, $suggestion);
+                $passCounter++;
+            }
         }
 
-        dd(DB::getQueryLog());
+        return $newSuggestionsArray;
     }
+
+    public function calculateSuggestionWeight($score, $popularity){
+        $scoreMultiplier = '';
+        $popularityMultiplier = '';
+
+        return 1 / ( ($score * $scoreMultiplier) + ($popularity * $popularityMultiplier) );
+    }
+
+    public function calculateRealWeight($suggestionWeight, $recencyScore){
+        return $suggestionWeight * $recencyScore;
+    }
+
+    public function updateSuggestionRating($suggestionID, $score){
+        $suggestion = Suggestion::find($suggestionID);
+
+        $previousRating = $suggestion->rating;
+        $newRating;
+
+        $suggestion->save();
+    }
+
+    public function updateSuggestionPopularity($suggestionID, $increment){
+        $suggestion = Suggestion::find($suggestionID);
+
+        $newPopularity = $suggestion->popularity + $increment;
+        $suggestion->popularity =  $newPopularity;
+
+        $suggestion->save();
+    }
+
+    public function updateRecencyScore($availPrefID, $increment){
+        $availPref = AvailPref::find($availPrefID);
+
+        
+
+        $availPref->save();
+    }
+    
 }

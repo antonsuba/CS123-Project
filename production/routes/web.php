@@ -23,8 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/suggestbycat/{categoryID}/{quantity}', 'RecommendationEngine@getSuggestionsByCategory');
-Route::get('/suggest/{quantity}', 'RecommendationEngine@getSuggestions');
+Route::get('/suggestbycat/{categoryID}/{quantity}/{offset}', 'RecommendationEngine@getSuggestionsByCategory');
+Route::get('/suggest/{quantity}/{offset}', 'RecommendationEngine@getSuggestions');
 
 //Seeder Routes
 Route::get('/seeder/seedall', 'Seeder@seedAll');
