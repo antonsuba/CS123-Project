@@ -23,7 +23,6 @@ class RecommendationEngine extends Controller
                         ->join('preference_suggestion', 'preferences.id', '=', 'preference_suggestion.preference_id')
                         ->join('suggestions', 'preference_suggestion.suggestion_id', '=', 'suggestions.id')
                         ->join('avail_prefs', 'preferences.id', '=', 'avail_prefs.preference_id')
-                        ->where('real_weight', '<', $threshold)
                         ->orderBy('real_weight')
                         ->limit($quantity)
                         ->offset($offset)                     
@@ -47,23 +46,6 @@ class RecommendationEngine extends Controller
 
         return $suggestions;
     }
-
-    /*public function getRealOrder($suggestions, $threshold){
-        $newSuggestionsArray = array();
-        $passCounter = 0;
-
-        foreach($suggestions as $suggestion){
-            $realWeight = $this->calculateRealWeight($suggestion->weight, $suggestion->recency_score);
-
-            if($realWeight < $threshold){
-                $suggestion->weight = $realWeight;
-                array_push($newSuggestionsArray, $suggestion);
-                $passCounter++;
-            }
-        }
-
-        return $newSuggestionsArray;
-    }*/
 
     public function calculateSuggestionWeight($score, $popularity){
         $scoreMultiplier = '';

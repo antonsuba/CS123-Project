@@ -93,8 +93,8 @@ created_at TIMESTAMP
 DROP TABLE IF EXISTS bookmarks;
 CREATE TABLE bookmarks(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-account_id int,
-FOREIGN KEY(account_id) REFERENCES accounts(id),
+user_id int,
+FOREIGN KEY(user_id) REFERENCES users(id),
 category_id int,
 FOREIGN KEY(category_id) REFERENCES categories(id),
 updated_at TIMESTAMP,

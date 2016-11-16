@@ -10,12 +10,9 @@
 
     <title>{{ config('app.name') }}</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/semantic.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
