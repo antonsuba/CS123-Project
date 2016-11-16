@@ -35,7 +35,7 @@ class HomeController extends Controller
         $orderedSuggestions = $engine->getRealOrder($suggestions, 10);
 
         $returnedQuantity = count($orderedSuggestions);
-        while($returnedQuantity != $quantity){
+        /*while($returnedQuantity != $quantity){
             $additionalSuggestions = $engine->getSuggestions($quantity - $returnedQuantity, $returnedQuantity);
             $additionalOrderedSuggestions = $engine->getRealOrder($additionalSuggestions, 10);
 
@@ -46,7 +46,7 @@ class HomeController extends Controller
         }
         usort($orderedSuggestions, function($x, $y){
             return $x['weight'] - $y['weight'];
-        });
+        });*/
 
         return $orderedSuggestions;
     }
