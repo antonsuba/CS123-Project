@@ -19,6 +19,10 @@ Route::get('search',function(){
 	return view('search');
 });
 
+Route::get('detail',function(){
+	return view('detail');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
