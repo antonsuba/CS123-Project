@@ -75,9 +75,9 @@ class Seeder extends Controller
 
     public function populateSuggestions(){
         $suggestions = array(
-            ['name' => 'Sip ang Gogh', 'rating' => 5, 'location' => 'Eastwood', 'popularity' => 22, 'weight' => 7],
-            ['name' => 'The Bunk', 'rating' => 3, 'location' => 'Shaw Blvd', 'popularity' => 43, 'weight' => 9],
-            ['name' => 'Prohibition', 'rating' => 4, 'location'=> 'Greenbelt 5, Makati', 'popularity' => 72, 'weight' => 5]
+            ['name' => 'Sip ang Gogh', 'rating' => 5, 'location' => 'Eastwood', 'popularity' => 22, 'weight' => 0.7],
+            ['name' => 'The Bunk', 'rating' => 3, 'location' => 'Shaw Blvd', 'popularity' => 43, 'weight' => 0.33],
+            ['name' => 'Prohibition', 'rating' => 4, 'location'=> 'Greenbelt 5, Makati', 'popularity' => 72, 'weight' => 0.2]
         );
 
         foreach($suggestions as $suggestion){
@@ -118,12 +118,14 @@ class Seeder extends Controller
 
     public function populateAvailPrefs(){
         $availprefs = array(
-            ['preference_id' => 4]
+            ['user_id' => 1, 'preference_id' => 4, 'recency_score' => 8.4]
         );
 
         foreach($availprefs as $availpref){
             $model = new AvailPref;
+            $model->user_id = $availpref['user_id'];
             $model->preference_id = $availpref['preference_id'];
+            $model->recency_score = $availpref['recency_score'];
 
             $model->save();
         }

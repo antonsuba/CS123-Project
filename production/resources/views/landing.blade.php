@@ -12,9 +12,8 @@
     </head>
 
     <body>
-	<div class="landing-master-div ui one column middle aligned grid stackable"> <!-- The Div that rules them all, for positioning sake-->
-	
-        <div class="ui one column centered grid stackable middle aligned">
+
+        <div class="ui one column centered grid stackable middle aligned landing-master-div">
 			<div class="seven wide column grid">
 				<h1 class="head-font title-logo">
 					<span class="color-yellow">W</span><span class="color-red">I</span><span class="color-blue">L</span><span class="color-green">D</span>
@@ -70,7 +69,6 @@
 				</div>		
 			</div>
 		</div>
-	
-	</div>
+
     </body>
 </html>

@@ -21,9 +21,10 @@ DROP TABLE IF EXISTS avail_prefs;
 CREATE TABLE avail_prefs(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 user_id int,
+FOREIGN KEY(user_id) REFERENCES users(id),
 preference_id int,
 FOREIGN KEY(preference_id) REFERENCES preferences(id),
-weight int,
+recency_score decimal(7,3),
 time_stamp TIMESTAMP, -- Recency of activity
 updated_at TIMESTAMP,
 created_at TIMESTAMP
@@ -57,7 +58,7 @@ rating int,
 location varchar(255),
 description varchar(255),
 popularity int,
-weight int,
+weight decimal(7,3),
 updated_at TIMESTAMP,
 created_at TIMESTAMP
 );
