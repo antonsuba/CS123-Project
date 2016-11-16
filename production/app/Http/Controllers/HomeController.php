@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\RecommendationEngine;
+use App\Category;
 
 class HomeController extends Controller
 {   
@@ -19,8 +20,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $result = $this->suggest(30);
-        return view('home', ['suggestions' => $result]);
+        $suggestions = $this->suggest(30);
+        $categories = $this->getCategories();
+        return view('home', ['suggestions' => $suggestions, 'categories' => $categories]);
     }
 
     public function suggest($quantity, $categoryID = NULL){
@@ -34,5 +36,10 @@ class HomeController extends Controller
         }
 
         return $suggestions;
+    }
+
+    public function getCategories(){
+        $categories = Category::get(['id', 'name']);
+        return $categories;
     }
 }
