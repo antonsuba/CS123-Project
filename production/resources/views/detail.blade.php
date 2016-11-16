@@ -24,7 +24,7 @@
 			</h1>
 		</div>
 		
-		<div class="ui ten wide column grid centered"> <!-- "ten wide" for size help(optional) -->
+		<div class="ui ten wide column grid centered detail-content"> <!-- "ten wide" for size help(optional) -->
 		
 			<div> <!-- Left Side -->
 				<div> <!-- Map Portion -->
