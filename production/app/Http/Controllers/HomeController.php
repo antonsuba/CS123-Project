@@ -32,22 +32,7 @@ class HomeController extends Controller
         else{
             $suggestions = $engine->getSuggestionsByCategory($categoryID, $quantity, 0);
         }
-        $orderedSuggestions = $engine->getRealOrder($suggestions, 10);
 
-        $returnedQuantity = count($orderedSuggestions);
-        /*while($returnedQuantity != $quantity){
-            $additionalSuggestions = $engine->getSuggestions($quantity - $returnedQuantity, $returnedQuantity);
-            $additionalOrderedSuggestions = $engine->getRealOrder($additionalSuggestions, 10);
-
-            foreach($additionalOrderedSuggestions as $additionalOrderedSuggestion){
-                array_push($orderedSuggestions, $additionalOrderedSuggestion);
-                $returnedQuantity++;
-            }
-        }
-        usort($orderedSuggestions, function($x, $y){
-            return $x['weight'] - $y['weight'];
-        });*/
-
-        return $orderedSuggestions;
+        return $suggestions;
     }
 }

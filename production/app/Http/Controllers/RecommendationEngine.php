@@ -23,10 +23,12 @@ class RecommendationEngine extends Controller
                         ->join('preference_suggestion', 'preferences.id', '=', 'preference_suggestion.preference_id')
                         ->join('suggestions', 'preference_suggestion.suggestion_id', '=', 'suggestions.id')
                         ->join('avail_prefs', 'preferences.id', '=', 'avail_prefs.preference_id')
-                        ->orderBy('suggestions.weight')
+                        ->where('real_weight', '<', $threshold)
+                        ->orderBy('real_weight')
                         ->limit($quantity)
-                        ->offset($offset)
-                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'avail_prefs.recency_score']);
+                        ->offset($offset)                     
+                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'avail_prefs.recency_score', 
+                                DB::raw('suggestions.weight * avail_prefs.recency_score as real_weight')]);
 
         return $suggestions;
     }
@@ -37,15 +39,16 @@ class RecommendationEngine extends Controller
                         ->join('preference_suggestion', 'preferences.id', '=', 'preference_suggestion.preference_id')
                         ->join('suggestions', 'preference_suggestion.suggestion_id', '=', 'suggestions.id')
                         ->join('avail_prefs', 'preferences.id', '=', 'avail_prefs.preference_id')
-                        ->orderBy('suggestions.weight')
+                        ->orderBy('real_weight')
                         ->limit($quantity)
                         ->offset($offset)
-                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'avail_prefs.recency_score']);
+                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'avail_prefs.recency_score', 
+                                DB::raw('suggestions.weight * avail_prefs.recency_score as real_weight')]);
 
         return $suggestions;
     }
 
-    public function getRealOrder($suggestions, $threshold){
+    /*public function getRealOrder($suggestions, $threshold){
         $newSuggestionsArray = array();
         $passCounter = 0;
 
@@ -60,7 +63,7 @@ class RecommendationEngine extends Controller
         }
 
         return $newSuggestionsArray;
-    }
+    }*/
 
     public function calculateSuggestionWeight($score, $popularity){
         $scoreMultiplier = '';

@@ -118,7 +118,8 @@ class Seeder extends Controller
 
     public function populateAvailPrefs(){
         $availprefs = array(
-            ['user_id' => 1, 'preference_id' => 4, 'recency_score' => 8.4]
+            ['user_id' => 1, 'preference_id' => 4, 'recency_score' => 8.4],
+            ['user_id' => 1, 'preference_id' => 8, 'recency_score' => 1]
         );
 
         foreach($availprefs as $availpref){
