@@ -1,0 +1,150 @@
+@import 'https://fonts.googleapis.com/css?family=Hind';
+@import 'https://fonts.googleapis.com/css?family=Montserrat';
+
+/********** Boiler Plate CSS ************/
+body {
+    background-color: #f3f3f3;
+	font-family: 'Hind', sans-serif;
+	font-size: 1.1em;
+}
+
+.head-font{
+    font-family: 'Montserrat', sans-serif;
+    color: #716b6b;
+}
+
+.color-yellow{
+    color: #e8c154;
+}
+
+.color-red{
+    color: #ec4655;
+}
+
+.color-blue{
+    color: #31c6ef;
+}
+
+.color-green{
+    color: #4dbab0;
+}
+
+/********** Mutli-Page ****************/
+
+.multi-space{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.input-squeeze-fix{ /* Still being tested */
+	min-width: 100%;
+}
+
+/* Since search and detail pages have just a tiny bar on top with the title unlike the other pages where WILD CARD is big and centered */
+.title-mini-bar{
+	background-color: white;
+	position: relative;
+}
+
+.title-navbar{
+	font-size: 2.5em;
+}
+
+/* Just so the W is not touching the side of the page*/
+.w-push{
+	position:relative;
+	left: 20px;
+}
+
+/* Offset for content below navbar */
+.content-container{
+	top: 140px;
+}
+
+.category-button{
+	font-family: 'Hind', sans-serif;
+}
+
+/********** Landing Page ****************/
+
+.landing-master-div{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.title-logo{
+    text-align: center;
+    font-size: 5.5em;
+}
+
+/********** Register Page ****************/
+.register-master-div{
+	/* Centers the contents, contents does not use the Semantics "centered" class*/
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.go-away-regbtn{
+	margin-bottom: 40px;
+}
+
+.max-button{
+	margin-top: 20px;
+}
+
+/********** Search Page ****************/
+.search-master-div{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-filter: blur(0.000001px);
+	background-color: #FFFACD;
+}
+
+.search-img{
+	height: 670px;
+	border-radius: 50px;
+}
+
+/************* Home ********************/
+.card-header{
+	font-family: 'Montserrat', sans-serif;
+}
+
+.card-content{
+	font-family: 'Hind', sans-serif;
+}
+
+/********** Detail Page ****************/
+.detail-master-div{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: aquamarine;
+}
+
+.detail-content{
+	position: relative;
+	top: 10%;
+}
+
+.detail-right{
+	background-color:white;
+	width: 30%;
+	border-radius: 1rem;
+	box-shadow: 0 0 3pt 5pt grey;
+}
+
+/*
+Delete Potentials List:
+(Landing Page)
+facebook-button
+div-bottom-landing
+login-button
+*/
