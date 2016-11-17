@@ -11,7 +11,7 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <link href="/css/semantic.css" rel="stylesheet">
+    <link href="/css/semantic.min.css" rel="stylesheet">
 	<link href="/css/style.css" rel="stylesheet">
 
     <!-- Scripts -->
@@ -24,12 +24,36 @@
 
 <body>
 <div class="ui one column grid">
-    <div class="ui top fixed menu  borderless"><!-- Wild Card Title Bar -->
+    <div class="ui top fixed menu borderless"><!-- Wild Card Title Bar -->
         <div class="item">
             <h1 class="head-font title-navbar">
                 <span class="color-yellow title-mini">W</span><span class="color-red title-mini">I</span><span class="color-blue title-mini">L</span><span class="color-green title-mini">D</span>
                 <span class="title-mini">CARD</span>
             </h1>
+        </div>
+        <div class="ui one column grid item">
+            <div class="ui floating labeled icon dropdown button">
+                <i class="filter icon"></i>
+                <span class="text">Categories</span>
+                
+                <div class="menu">
+                    <div class="header">
+                        Search Categories
+                    </div>
+                    <div class="ui left icon input">
+                        <i class="search icon"></i>
+                        <input type="text" name="search" placeholder="Search...">
+                    </div>
+
+                    <div class="header">
+                        <i class="tags icon"></i>
+                        Filter by Category
+                    </div>
+                    @foreach($categories as $category)
+                    <div class="item">{{ $category->name }}</div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -40,6 +64,12 @@
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous">
+    </script>
+
+    <script src="/js/semantic.min.js"></script>
+
+    <script type="text/javascript">
+        $('.ui.dropdown').dropdown();
     </script>
 
     @yield('scripts')

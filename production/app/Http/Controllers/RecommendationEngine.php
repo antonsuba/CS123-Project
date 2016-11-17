@@ -26,7 +26,7 @@ class RecommendationEngine extends Controller
                         ->orderBy('real_weight')
                         ->limit($quantity)
                         ->offset($offset)                     
-                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'avail_prefs.recency_score', 
+                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'suggestions.img_src', 'avail_prefs.recency_score', 
                                 DB::raw('suggestions.weight * avail_prefs.recency_score as real_weight')]);
 
         return $suggestions;
@@ -41,7 +41,7 @@ class RecommendationEngine extends Controller
                         ->orderBy('real_weight')
                         ->limit($quantity)
                         ->offset($offset)
-                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'avail_prefs.recency_score', 
+                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'suggestions.img_src', 'avail_prefs.recency_score', 
                                 DB::raw('suggestions.weight * avail_prefs.recency_score as real_weight')]);
 
         return $suggestions;

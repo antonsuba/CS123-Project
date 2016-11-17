@@ -59,6 +59,7 @@ location varchar(255),
 description varchar(255),
 popularity int,
 weight decimal(7,3),
+img_src varchar(255),
 updated_at TIMESTAMP,
 created_at TIMESTAMP
 );
