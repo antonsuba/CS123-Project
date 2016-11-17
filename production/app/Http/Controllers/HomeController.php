@@ -39,7 +39,7 @@ class HomeController extends Controller
     }
 
     public function getCategories(){
-        $categories = Category::get(['id', 'name']);
+        $categories = Category::orderBy('name')->get(['id', 'name']);
         return $categories;
     }
 }
