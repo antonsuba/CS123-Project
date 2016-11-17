@@ -10,8 +10,9 @@ use App\Http\Requests;
 
 class PreferenceController extends Controller
 {
-    //preferences back end
-
+    /**
+    *Back-end for handling Preferences
+    */
     public function addPreferences($preferences){
         foreach ($preferences as $preference) {
             $pref = Preference::where('name', $preference);

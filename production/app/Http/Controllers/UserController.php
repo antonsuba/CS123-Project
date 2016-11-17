@@ -8,7 +8,10 @@ use App\User;
 use App\Http\Requests;
 
 class UserController extends Controller
-{
+{   
+    /**
+    *Back-end for handling Users
+    */
     public function changePassword($oldPass, $newPass, $confirmNewPass){
         $user = Auth::user();
         if($user->password == $oldPass){
