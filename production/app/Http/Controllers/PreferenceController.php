@@ -11,8 +11,9 @@ use App\Http\Requests;
 class PreferenceController extends Controller
 {
     /**
-    *Back-end for handling Preferences
+    *Handling Preferences
     */
+
     public function addPreferences($preferences){
         foreach ($preferences as $preference) {
             $pref = Preference::where('name', $preference);
