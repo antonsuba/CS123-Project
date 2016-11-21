@@ -23,6 +23,10 @@ Route::get('detail',function(){
 	return view('detail');
 });
 
+Route::get('sh',function(){
+	return view('searchHelp');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
