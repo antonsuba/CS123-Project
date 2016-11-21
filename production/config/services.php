@@ -54,7 +54,7 @@ return [
     'facebook' => [
         'client_id' => '1822295657985665',
         'client_secret' => '1d1aa281bc6a0bb691614f7203a92c3b',
-        'redirect' => 'http://cs123.local/auth/facebook/callback/facebook',
+        'redirect' => 'http://wildcard.local/auth/facebook/callback/facebook',
     ],
 
 ];
