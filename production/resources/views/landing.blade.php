@@ -24,7 +24,7 @@
 			<div class="six wide column"> <!-- Note: higher # = wider inputs-->
 				<div class="ui grid centered">
 					<div class="ten wide column">
-						<button class="ui facebook button fluid">
+						<button class="ui facebook button fluid" onclick="location.href='auth/facebook'" type="button">
 						<i class="facebook icon"></i>
 						Log in with Facebook
 						</button>

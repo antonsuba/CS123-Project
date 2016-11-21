@@ -35,4 +35,26 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Localhost OAuth Services
+    |--------------------------------------------------------------------------
+    */
+    /*'facebook' => [
+        'client_id' => '1822291917986039',
+        'client_secret' => 'f3c18ba2ed5c62844ef50e404e10a3f6',
+        'redirect' => 'http://localhost:8000/auth/facebook/callback/facebook',
+    ],*/
+
+    /*
+    |--------------------------------------------------------------------------
+    | Homestead OAuth Services
+    |--------------------------------------------------------------------------
+    */
+    'facebook' => [
+        'client_id' => '1822295657985665',
+        'client_secret' => '1d1aa281bc6a0bb691614f7203a92c3b',
+        'redirect' => 'http://cs123.local/auth/facebook/callback/facebook',
+    ],
+
 ];
