@@ -14,12 +14,12 @@
     <link href="/css/semantic.min.css" rel="stylesheet">
 	<link href="/css/style.css" rel="stylesheet">
 
-    <!-- Scripts -->
+    <!-- Scripts
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
-    </script>
+    </script> -->
 </head>
 
 <body>
@@ -33,6 +33,24 @@
         </div>
 
         @yield('navbar-content')
+
+        <div class="right menu">
+            <div class="item">
+                <img class="ui avatar image mini" src="{{ Auth::user()->avatar }}">
+            </div>
+
+            <div class="ui one column grid item">
+                <div class="ui floating dropdown">
+                    {{ Auth::user()->name }}
+                    <i class="caret down icon"></i>
+                    
+                    <div class="menu">
+                        <div class="item">Account Settings</div>
+                        <div class="item">Logout</div>
+                    </div>
+                </div>
+            </div>
+        </div> 
 
     </div>
 </div>
