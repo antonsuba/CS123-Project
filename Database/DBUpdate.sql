@@ -7,11 +7,13 @@ USE cs123;
 DROP TABLE IF EXISTS users;
 CREATE TABLE users(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+facebook_id varchar(255) NOT NULL,
 email varchar(255) NOT NULL ,
-password varchar(255) NOT NULL,
-first_name varchar(255),
-last_name varchar(255),
-age int,
+-- password varchar(255) NOT NULL,
+name varchar(255),
+-- last_name varchar(255),
+avatar varchar(255),
+-- age int,
 remember_token varchar(100),
 updated_at TIMESTAMP,
 created_at TIMESTAMP

@@ -11,6 +11,11 @@
 |
 */
 
+/*
+|--------------------------------------------------------------------------
+| View Routes
+|--------------------------------------------------------------------------
+*/
 Route::get('/', function () {
     return view('landing');
 });
@@ -27,14 +32,31 @@ Route::get('sh',function(){
 	return view('searchHelp');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Auth Routes
+|--------------------------------------------------------------------------
+*/
 Auth::routes();
 
+Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/facebook/callback/{provider?}', 'Auth\AuthController@handleProviderCallback');
+
+/*
+|--------------------------------------------------------------------------
+| Controller Routes
+|--------------------------------------------------------------------------
+*/
 Route::get('/home', 'HomeController@index');
 
 Route::get('/suggestbycat/{categoryID}/{quantity}/{offset}', 'RecommendationEngine@getSuggestionsByCategory');
 Route::get('/suggest/{quantity}/{offset}', 'RecommendationEngine@getSuggestions');
 
-//Seeder Routes
+/*
+|--------------------------------------------------------------------------
+|Seeder Routes
+|--------------------------------------------------------------------------
+*/
 Route::get('/seeder/seedall', 'Seeder@seedAll');
 Route::get('/seeder/popcategories', 'Seeder@populateCategories');
 Route::get('/seeder/poppreferences', 'Seeder@populatePreferences');
