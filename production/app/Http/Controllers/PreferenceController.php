@@ -14,22 +14,30 @@ class PreferenceController extends Controller
     *Handling Preferences
     */
 
-    public function addPreferences($preferences){
-        foreach ($preferences as $preference) {
-            $pref = Preference::where('name', $preference);
-            $pref_id = $pref->id;
+    public function addPreferences($preferenceIDs){
+        foreach ($preferenceIDs as $preferenceID) {
+            $pref = Preference::find($preferenceID);
             
             $newAP = new AvailPref;
             $newAP->user_id = Auth::id();
-            $newAP->preference_id = $pref_id;
+            $newAP->preference_id = $preferenceID;
             $newAP->save();
         }
     }
 
-    public function removePreferences($preferences){
-        foreach($preferences as $preference){
-            $pref = AvailPref::where('name', $preference);
+    public function removePreferences($preferenceIDs){
+        foreach($preferenceIDs as $preferenceID){
+            $pref = AvailPref::find($preferenceID);
             $pref->delete();
+        }
+    }
+
+    public function showPreferences(){
+        $userPreferences = AvailPref::where('user_id', Auth::id())->get();
+
+        foreach($userPreferences as $preference){
+            $prefID = $preference->preference_id;
+            $pref = Preference::find($prefID);
         }
     }
 }
