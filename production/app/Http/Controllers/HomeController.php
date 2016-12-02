@@ -18,6 +18,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /*
+    |--------------------------------------------------------------------------
+    | Suggestions
+    |--------------------------------------------------------------------------
+    */
+
     public function index()
     {
         $suggestions = $this->getSuggestions(30);
@@ -47,5 +54,19 @@ class HomeController extends Controller
     public function getCategories(){
         $categories = Category::orderBy('name')->get(['id', 'name']);
         return $categories;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Suggestion Detail
+    |--------------------------------------------------------------------------
+    */
+
+    public function detail(){
+        return view('detail');
+    }
+
+    public function getDetails(){
+        
     }
 }

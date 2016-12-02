@@ -40,7 +40,7 @@
             </div>
 
             <div class="item">
-                <a href="/bookmark" class="head-font">Bookmark</a>
+                <a href="/bookmark" class="head-font">Bookmarks</a>
             </div>
 
             <div class="ui one column grid item">

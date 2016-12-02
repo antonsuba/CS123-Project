@@ -33,7 +33,7 @@
     <div class="twelve wide column content-container">
     <div id="cards" class="ui four stackable cards">
         @foreach($suggestions as $suggestion)
-        <div class="ui card">
+        <div class="ui card" href="/home/detail/{{ $suggestion->id }}">
             <div class="image">
                 <img src="{{ $suggestion->img_src }}">
             </div>
