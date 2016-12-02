@@ -23,4 +23,9 @@ class SuggestionController extends Controller
     public function markSuggestionAsDone($suggestionID){
         
     }
+
+    public function createSuggestion($title, $description, $location, $placesArray){
+        
+    
+    }
 }
