@@ -36,12 +36,17 @@
 
         <div class="right menu">
             <div class="item">
-                <img class="ui avatar image mini" src="{{ Auth::user()->avatar }}">
+                <a href="/addexperience" class="head-font">Make an Experience</a>
+            </div>
+
+            <div class="item">
+                <a href="/bookmark" class="head-font">Bookmark</a>
             </div>
 
             <div class="ui one column grid item">
                 <div class="ui floating dropdown">
-                    {{ Auth::user()->name }}
+                    <img class="ui avatar image mini" src="{{ Auth::user()->avatar }}">
+                    <!--{{ Auth::user()->name }}-->
                     <i class="caret down icon"></i>
                     
                     <div class="menu">
@@ -61,6 +66,12 @@
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous">
+</script>
+
+<script type="text/javascript">
+    $.ajaxSetup({
+    headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
+    });
 </script>
 
 <script src="/js/semantic.min.js"></script>
