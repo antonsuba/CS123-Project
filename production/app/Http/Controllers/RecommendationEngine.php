@@ -48,8 +48,8 @@ class RecommendationEngine extends Controller
     }
 
     public function calculateSuggestionWeight($score, $popularity){
-        $scoreMultiplier = '';
-        $popularityMultiplier = '';
+        $scoreMultiplier = 1;
+        $popularityMultiplier = 1;
 
         return 1 / ( ($score * $scoreMultiplier) + ($popularity * $popularityMultiplier) );
     }

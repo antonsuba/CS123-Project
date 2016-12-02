@@ -56,11 +56,34 @@ CREATE TABLE suggestions(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 name varchar(255),
 rating int,
-location varchar(255),
+location_id int,
+FOREIGN KEY(location_id) REFERENCES locations(id),
 description varchar(255),
 popularity int,
 weight decimal(7,3),
 img_src varchar(255),
+updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
+created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
+);
+
+DROP TABLE IF EXISTS places;
+CREATE TABLE places(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name varchar(255), 
+location_id int,
+FOREIGN KEY(location_id) REFERENCES locations(id),
+suggestion_id int,
+FOREIGN KEY(suggestion_id) REFERENCES suggestions(id),
+description varchar(255),
+img_src varchar(255),
+updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
+created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
+);
+
+DROP TABLE IF EXISTS locations;
+CREATE TABLE locations(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+name varchar(255),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );
