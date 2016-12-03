@@ -17,4 +17,8 @@ class Suggestion extends Model
     public function activities(){
         return $this->hasMany('App\Activity');
     }
+	
+	public function comments(){
+        return $this->hasMany('App\Comment');
+    }
 }
