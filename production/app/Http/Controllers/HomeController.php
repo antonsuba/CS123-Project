@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\RecommendationEngine;
 use App\Category;
 use App\Suggestion;
+use App\Http\Controllers\Traits;
 
 class HomeController extends Controller
 {   
+    use SuggestionTraits;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -63,8 +66,9 @@ class HomeController extends Controller
     */
 
     public function detail($suggestionID){
-        $details = Suggestion::where('id', '=', $suggestionID)
-                    ->first();
-        return view('detail', ['details' => $details]);
+        $details = $this->getSuggestionDetails($suggestionID);
+        $activities = $this->getActivities($suggestionID);
+        $places = $this->getPlaces($suggestionID);
+        return view('detail', ['details' => $details, 'activities' => $activities, 'places' => $places]);
     }
 }
