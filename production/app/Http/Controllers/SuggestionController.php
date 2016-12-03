@@ -8,8 +8,8 @@ use App\Suggestion;
 use App\Place;
 use App\Location;
 use App\Activities;
-use App\Http\Controllers\Traits;
 use App\Http\Requests;
+use App\Http\Controllers\Traits;
 
 class SuggestionController extends Controller
 {
@@ -45,38 +45,5 @@ class SuggestionController extends Controller
             $suggestionID = $newSuggestion->id;
             $newActivity = $this->createActivity($suggestionID, $activity[0], $activity[1], $activity[2]);
         }
-    }
-
-    public function getSuggestionDetails($suggestionID){
-        $suggestion = Suggestion::find($suggestionID);
-        $name = $suggestion->name;
-        $description = $suggestion->description;
-        $location = Location::find($suggestion->location_id);
-        $locationName = $location->name;
-
-        $suggestionDetails = array($name, $description, $locationName);
-        return $suggestionDetails;
-    }
-
-    public function getActivities($suggestionID){
-        $suggestion = Suggestion::find($suggestionID);
-        $activities = $suggestion->activities()->get();
-
-        return $activities;
-    }
-
-    public function getPlaces($suggestionID){
-        $suggestion = Suggestion::find($suggestionID);
-        $activities = $suggestion->activities()->get();
-
-        $i = 0;
-        $places = array();
-        foreach ($activities as $activity) {
-            $place = $activity->place();
-            $places[i] = $place;
-            $i++;
-        }
-
-        return $places;
     }
 }
