@@ -120,6 +120,8 @@ created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+suggestion_id int,
+FOREIGN KEY(suggestion_id) REFERENCES suggestions(id),
 content varchar(255),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
