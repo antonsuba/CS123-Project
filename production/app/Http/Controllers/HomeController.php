@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\RecommendationEngine;
 use App\Category;
+use App\Suggestion;
 
 class HomeController extends Controller
 {   
@@ -25,8 +26,7 @@ class HomeController extends Controller
     |--------------------------------------------------------------------------
     */
 
-    public function index()
-    {
+    public function index(){
         $suggestions = $this->getSuggestions(30);
         $categories = $this->getCategories();
         return view('home', ['suggestions' => $suggestions, 'categories' => $categories]);
@@ -62,11 +62,9 @@ class HomeController extends Controller
     |--------------------------------------------------------------------------
     */
 
-    public function detail(){
-        return view('detail');
-    }
-
-    public function getDetails(){
-        
+    public function detail($suggestionID){
+        $details = Suggestion::where('id', '=', $suggestionID)
+                    ->first();
+        return view('detail', ['details' => $details]);
     }
 }
