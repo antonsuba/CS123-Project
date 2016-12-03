@@ -86,11 +86,21 @@ updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );
 
-DROP TABLE IF EXISTS suggestion_place;
-CREATE TABLE suggestion_place(
+DROP TABLE IF EXISTS activities;
+CREATE TABLE activities(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-suggestion_id int,
+suggestion_id int;
 FOREIGN KEY(suggestion_id) REFERENCES suggestions(id),
+description varchar(255),
+updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
+created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
+);
+
+DROP TABLE IF EXISTS activity_place;
+CREATE TABLE activity_place(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+activity_id int,
+FOREIGN KEY(activity_id) REFERENCES activities(id),
 place_id int,
 FOREIGN KEY(place_id) REFERENCES places(id),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
