@@ -5,12 +5,12 @@
 body {
     background-color: #FFFFFF;
 	font-family: 'Hind', sans-serif;
-	font-size: 1.1em;
+	font-size: 1.2em;
 }
 
 .head-font{
     font-family: 'Montserrat', sans-serif;
-    color: #716b6b;
+    color: #716b6b !important; 
 }
 
 h1{
@@ -27,6 +27,11 @@ h2{
 
 a:hover{
 	color: #484848;
+}
+
+label{
+	font-family: 'Montserrat', sans-serif;
+    color: #716b6b !important; 
 }
 
 /********** Mutli-Page ****************/
@@ -60,6 +65,13 @@ a:hover{
 
 .category-button{
 	font-family: 'Hind', sans-serif;
+}
+
+.button-shaded{
+	color: #FFFFFF !important;
+	background: -webkit-linear-gradient(90deg, #FD6F46 10%, #FB9832 90%) !important; /* Chrome 10+, Saf5.1+ */ 
+	background: -moz-linear-gradient(90deg, #FD6F46 10%, #FB9832 90%) !important; /* FF3.6+ */ 
+	background: linear-gradient(90deg, #FD6F46 10%, #FB9832 90%) !important; /* W3C */ 
 }
 
 /********** Landing Page ****************/
@@ -117,6 +129,7 @@ a:hover{
 
 /************* Home ********************/
 .card-header{
+	color: #484848;
 	font-family: 'Montserrat', sans-serif;
 }
 
