@@ -51,6 +51,14 @@ created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 
 -- -------------------------------------------------------------------- Suggestions
 
+DROP TABLE IF EXISTS locations;
+CREATE TABLE locations(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+name varchar(255),
+updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
+created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
+);
+
 DROP TABLE IF EXISTS suggestions;
 CREATE TABLE suggestions(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -72,18 +80,19 @@ id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 name varchar(255), 
 location_id int,
 FOREIGN KEY(location_id) REFERENCES locations(id),
-suggestion_id int,
-FOREIGN KEY(suggestion_id) REFERENCES suggestions(id),
 description varchar(255),
 img_src varchar(255),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );
 
-DROP TABLE IF EXISTS locations;
-CREATE TABLE locations(
-id int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-name varchar(255),
+DROP TABLE IF EXISTS suggestion_place;
+CREATE TABLE suggestion_place(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+suggestion_id int,
+FOREIGN KEY(suggestion_id) REFERENCES suggestions(id),
+place_id int,
+FOREIGN KEY(place_id) REFERENCES places(id),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );

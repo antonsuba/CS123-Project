@@ -29,4 +29,12 @@ class BookmarkController extends Controller
         $bookmark = Bookmark::find($bookmarkID);
         $bookmark->delete();
     }
+
+    public function showBookmarks(){
+        $userBookmarks = Bookmark::where('user_id', Auth::id())->get();
+
+        foreach($userBookmarks as $bookmark){
+            echo $bookmark->name;
+        }
+    }
 }
