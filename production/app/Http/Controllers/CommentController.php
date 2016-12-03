@@ -16,9 +16,10 @@ class CommentController extends Controller
 		}
 	}
 	
-	public function giveComment($suggestionID,$content){
+	public function giveComment($suggestionID,$content,$userID){
 		$newComment = new Comment;
 		$newComment->suggestion_id = $suggestionID;
+		$newComment->user_id = $userID;
 		$newComment->content = $content;
 		$newComment->created_at = date("Y-m-d H:i:s"); // Get immediate date and time
 		$newComment->save();
