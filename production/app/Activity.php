@@ -10,7 +10,7 @@ class Activity extends Model
         return $this->belongsToMany('App\Suggestion');
     }
 
-    public function places(){
-        return $this->belongsToMany('App\Place')->withTimeStamps();
+    public function place(){
+        return $this->belongsTo('App\Place');
     }
 }
