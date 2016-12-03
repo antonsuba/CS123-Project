@@ -51,6 +51,14 @@ created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 
 -- -------------------------------------------------------------------- Suggestions
 
+DROP TABLE IF EXISTS locations;
+CREATE TABLE locations(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+name varchar(255),
+updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
+created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
+);
+
 DROP TABLE IF EXISTS suggestions;
 CREATE TABLE suggestions(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -62,14 +70,6 @@ description varchar(255),
 popularity int,
 weight decimal(7,3),
 img_src varchar(255),
-updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
-created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
-);
-
-DROP TABLE IF EXISTS locations;
-CREATE TABLE locations(
-id int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-name varchar(255),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );

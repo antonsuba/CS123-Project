@@ -25,7 +25,7 @@
     <div class="twelve wide column content-container">
     <div id="cards" class="ui four stackable cards">
         @foreach($suggestions as $suggestion)
-        <div class="ui card" onclick="window.location='/home/detail/{{ $suggestion->id }}'">
+        <div class="ui raised link card" onclick="window.location='/home/detail/{{ $suggestion->id }}'">
             <div class="image">
                 <img src="{{ $suggestion->img_src }}">
             </div>
