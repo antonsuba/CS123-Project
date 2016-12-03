@@ -35,7 +35,7 @@
             @yield('navbar-content')
 
             <div class="item">
-                <a href="/addexperience" class="head-font">Make an Experience</a>
+                <a href="/create-an-experience" class="head-font">Create an Experience</a>
             </div>
 
             <div class="ui one column grid item">

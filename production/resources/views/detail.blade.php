@@ -15,7 +15,7 @@
 
 				<div class="ui section divider"></div>
 
-				<h2>Destinations</h2>
+				<h2>Itinerary</h2>
 				
 			</div>
 

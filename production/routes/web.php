@@ -51,7 +51,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/home/suggest/{categoryID}', 'HomeController@suggest');
 Route::get('/home/detail/{suggestionID}', 'HomeController@detail');
 
-Route::get('/addexperience', 'ExperienceController@index');
+Route::get('/create-an-experience', 'ExperienceController@index');
 Route::get('/bookmark', 'BookmarkController@index');
 
 Route::get('/suggestbycat/{categoryID}/{quantity}/{offset}', 'RecommendationEngine@getSuggestionsByCategory');
