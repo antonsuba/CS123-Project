@@ -8,8 +8,7 @@
 
         <div class="ui relaxed grid stackable">
             <div class="row">
-                <h1 id="header-setup"> Create an experience for others to try out</h1>
-                <h1 id="header-itinerary" style="display: none;"> Let's add an itinerary </h1>
+                <h1 id="prompt-header">Create an experience for others to try out</h1>
             </div>
 
             <div class="nine wide column">
@@ -84,16 +83,14 @@
 $(document).ready(function(){
     $("#next-button-setup").click(function(){
         $("#setup").hide();
-        $("#header-setup").hide();
         $("#add-itinerary").show();
-        $("#header-itinerary").show();
+        $("#prompt-header").html("Let's add an itinerary");
     });
 
     $("#back-button-itinerary").click(function(){
         $("#add-itinerary").hide();
-        $("#header-itinerary").hide();
         $("#setup").show();
-        $("#header-setup").show();
+        $("#prompt-header").html("Create an experience for others to try out");
     });
 });
 

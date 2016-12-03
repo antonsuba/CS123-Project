@@ -6,6 +6,8 @@
 	<div class="ten wide column content-container">
 		<div class="ui relaxed grid">
 			<div class="nine wide column">
+
+			@php dd($details); @endphp
 				<h1>{{ $details->name }}</h1>
 				<p>{{ $details->city }}</p>
 
