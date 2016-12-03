@@ -11,6 +11,13 @@ class BookmarkController extends Controller
     /**
     *Handling Bookmarks
     */
+    public function index(){
+        return view('bookmarks');
+    }
+
+    public function getBookmarks(){
+        
+    }
 
     public function saveBookmark($suggestionID){
         $sug = Preference_Suggestion::where('suggestion_id', $suggestionID);

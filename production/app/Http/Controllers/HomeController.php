@@ -18,14 +18,27 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /*
+    |--------------------------------------------------------------------------
+    | Suggestions
+    |--------------------------------------------------------------------------
+    */
+
     public function index()
     {
-        $suggestions = $this->suggest(30);
+        $suggestions = $this->getSuggestions(30);
         $categories = $this->getCategories();
         return view('home', ['suggestions' => $suggestions, 'categories' => $categories]);
     }
 
-    public function suggest($quantity, $categoryID = NULL){
+    public function suggest($categoryID){
+        $suggestions = $this->getSuggestions(30, $categoryID);
+        $categories = $this->getCategories();
+        return view('home', ['suggestions' => $suggestions, 'categories' => $categories]);
+    }
+
+    public function getSuggestions($quantity, $categoryID = NULL){
         $engine = new RecommendationEngine;
 
         if($categoryID == NULL){
@@ -41,5 +54,19 @@ class HomeController extends Controller
     public function getCategories(){
         $categories = Category::orderBy('name')->get(['id', 'name']);
         return $categories;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Suggestion Detail
+    |--------------------------------------------------------------------------
+    */
+
+    public function detail(){
+        return view('detail');
+    }
+
+    public function getDetails(){
+        
     }
 }

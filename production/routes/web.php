@@ -28,9 +28,9 @@ Route::get('detail',function(){
 	return view('detail');
 });
 
-Route::get('sh',function(){
+/*Route::get('sh',function(){
 	return view('searchHelp');
-});
+});*/
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +48,14 @@ Route::get('auth/facebook/callback/{provider?}', 'Auth\AuthController@handleProv
 |--------------------------------------------------------------------------
 */
 Route::get('/home', 'HomeController@index');
+Route::get('/home/suggest/{categoryID}', 'HomeController@suggest');
+Route::get('/home/detail/{suggestionID}', 'HomeController@detail');
 
-Route::get('/suggestbycat/{categoryID}/{quantity}/{offset}', 'RecommendationEngine@getSuggestionsByCategory');
-Route::get('/suggest/{quantity}/{offset}', 'RecommendationEngine@getSuggestions');
+Route::get('/addexperience', 'ExperienceController@index');
+Route::get('/bookmark', 'BookmarkController@index');
+
+//Route::get('/suggestbycat/{categoryID}/{quantity}/{offset}', 'RecommendationEngine@getSuggestionsByCategory');
+//Route::get('/suggest/{quantity}/{offset}', 'RecommendationEngine@getSuggestions');
 
 /*
 |--------------------------------------------------------------------------

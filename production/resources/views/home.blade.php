@@ -2,11 +2,11 @@
 
 @section('navbar-content')
 <div class="ui one column grid item">
-    <div class="ui floating labeled icon dropdown button">
+    <div class="ui floating labeled icon dropdown">
         <i class="filter icon"></i>
         <span class="text">Categories</span>
         
-        <div class="menu">
+        <div id="category-dropdown" class="menu">
             <div class="header">
                 Search Category
             </div>
@@ -20,7 +20,7 @@
                 Filter by Category
             </div>
             @foreach($categories as $category)
-            <div class="item">{{ $category->name }}</div>
+            <a class="item" href="/home/suggest/{{ $category->id }}">{{ $category->name }}</a>
             @endforeach
         </div>
     </div>
@@ -31,9 +31,9 @@
 <div class="ui grid centered">
 
     <div class="twelve wide column content-container">
-    <div class="ui four stackable cards">
+    <div id="cards" class="ui four stackable cards">
         @foreach($suggestions as $suggestion)
-        <div class="ui card">
+        <div class="ui card" href="/home/detail/{{ $suggestion->id }}">
             <div class="image">
                 <img src="{{ $suggestion->img_src }}">
             </div>
@@ -45,7 +45,7 @@
                     <span class="card-content">Rating: {{ $suggestion->rating }}</span>
                 </div>
                 <div class="description">
-                    <span class="card-content"> {{ $suggestion->location }} </span>
+                    <span class="card-content">{{ $suggestion->location }} </span>
                 </div>
             </div>
         </div>
@@ -61,17 +61,8 @@
 
 <script type="text/javascript">
     $('.ui.dropdown').dropdown();
-
-    function getSuggestionsByCategory($id){
-        $.ajax({
-            type: 'POST',
-            url: '/suggest',
-            data: {categoryID: $id},
-            success: function($suggestions){
-                
-            }
-        });
-    }
+    
+    
 </script>
 
 @endsection
