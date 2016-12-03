@@ -9,7 +9,7 @@ use App\Place;
 use App\Location;
 use App\Activities;
 use App\Http\Requests;
-use App\Http\Controllers\Traits;
+use App\Http\Controllers\ActivityTraits;
 
 class SuggestionController extends Controller
 {
