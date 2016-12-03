@@ -14,7 +14,7 @@ class Suggestion extends Model
         return $this->belongsTo('App\Location');
     }
 
-    public function places(){
-        return $this->belongsToMany('App\Place', 'suggestion_place')->withTimeStamps();
+    public function activities(){
+        return $this->hasMany('App\Activity');
     }
 }
