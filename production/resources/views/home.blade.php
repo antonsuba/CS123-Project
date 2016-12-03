@@ -2,25 +2,17 @@
 
 @section('navbar-content')
 <div class="ui one column grid item">
-    <div class="ui floating labeled icon dropdown">
-        <i class="filter icon"></i>
+    <div class="ui floating dropdown">
         <span class="text">Categories</span>
-        
-        <div id="category-dropdown" class="menu">
-            <div class="header">
-                Search Category
-            </div>
-            <div class="ui left icon input">
-                <i class="search icon"></i>
-                <input type="text" name="search" placeholder="Search...">
-            </div>
+        <i class="caret down icon"></i>
 
+        <div class="menu">
             <div class="header">
                 <i class="tags icon"></i>
                 Filter by Category
             </div>
             @foreach($categories as $category)
-            <a class="item" href="/home/suggest/{{ $category->id }}">{{ $category->name }}</a>
+            <div class="item"><a class="head-font" href="/home/suggest/{{ $category->id }}">{{ $category->name }}</a></div>
             @endforeach
         </div>
     </div>
@@ -33,7 +25,7 @@
     <div class="twelve wide column content-container">
     <div id="cards" class="ui four stackable cards">
         @foreach($suggestions as $suggestion)
-        <div class="ui card" href="/home/detail/{{ $suggestion->id }}">
+        <div class="ui card" onclick="window.location='/home/detail/{{ $suggestion->id }}'">
             <div class="image">
                 <img src="{{ $suggestion->img_src }}">
             </div>

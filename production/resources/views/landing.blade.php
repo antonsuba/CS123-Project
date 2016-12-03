@@ -11,17 +11,23 @@
         <link href="/css/style.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="landing-body">
 
         <div class="ui one column centered grid stackable middle aligned landing-master-div">
 			<div class="seven wide column grid">
-				<h1 class="head-font title-logo">
-					<span class="color-yellow">W</span><span class="color-red">I</span><span class="color-blue">L</span><span class="color-green">D</span>
-					CARD
+				<h1 class="title-logo">
+					Wild Card
 				</h1>
+				
+				<center>
+				<button class="ui facebook button" onclick="location.href='auth/facebook'" type="button">
+					<i class="facebook icon"></i>
+					Log in with Facebook
+				</button>
+				</center>
 			</div>
 			
-			<div class="six wide column"> <!-- Note: higher # = wider inputs-->
+			<!--<div class="six wide column">
 				<div class="ui grid centered">
 					<div class="ten wide column">
 						<button class="ui facebook button fluid" onclick="location.href='auth/facebook'" type="button">
@@ -33,7 +39,7 @@
 						
 						<form class="ui form error" role="form" method="POST" action="{{ url('/register') }}">
 							{{ csrf_field() }}
-							<!--SIGN UP-->
+							
 							<div class="required field {{  $errors->has('name') ? 'error' : '' }}">
 								<div class="ui input fluid">
 									<input id="name" name="name" type="text" placeholder="Name" value="{{ old('name') }}">
@@ -67,7 +73,7 @@
 						
 					</div>
 				</div>		
-			</div>
+			</div>-->
 		</div>
 
     </body>
