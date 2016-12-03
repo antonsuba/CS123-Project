@@ -31,7 +31,9 @@ a:hover{
 
 label{
 	font-family: 'Montserrat', sans-serif;
-    color: #716b6b !important; 
+    color: #716b6b !important;
+	padding-top: 14px;
+	padding-bottom: 14px; 
 }
 
 /********** Mutli-Page ****************/

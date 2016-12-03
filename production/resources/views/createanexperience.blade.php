@@ -5,13 +5,17 @@
 <div class="ui grid centered">
 
     <div class="ten wide column grid content-container">
-        <h1 class> Create an experience for others to try out </p>
 
         <div class="ui relaxed grid stackable">
+            <div class="row">
+                <h1 id="header-setup"> Create an experience for others to try out</h1>
+                <h1 id="header-itinerary" style="display: none;"> Let's add an itinerary </h1>
+            </div>
+
             <div class="nine wide column">
 
                 <form class="ui form">
-                <div class="ui big form">
+                <div id="setup" class="ui big form ">
                     <div class="field">
                         <label>Give it a name</label>
                         <input type="text" placeholder="Rooftop Bar Hopping">
@@ -33,35 +37,36 @@
                         <label>Describe the experience</label>
                         <textarea rows="3" placeholder="Good memories and bad decisions"></textarea>
                     </div>
-                    <button type="button" class="ui huge button button-shaded">Next</button>
+                    <a href="/home" class="head-font"><i class="left floated arrow left icon"></i>Back</a>
+                    <button id="next-button-setup" type="button" class="ui huge button button-shaded right floated">Next</button>
                 </div>
-                </form>
-                <!--<form class="ui form error" role="form" method="POST" action="{{ url('/register') }}">
-                    {{ csrf_field() }}
-                    
-                    <div class="required field {{  $errors->has('name') ? 'error' : '' }}">
-                        <label style="color:red;">Give it a name</label>
-                        <div class="ui input fluid">
-                            <input id="name" name="name" type="text" placeholder="Rooftop Bar Hopping" value="{{ old('name') }}">
-                        </div>
+                
+                <div id="add-itinerary" class="ui big form" style="display: none;">
+                    <div class="field">
+                        <label>Add Itinerary</label>
+                        <input type="text" placeholder="Rooftop Bar Hopping">
                     </div>
-
-                    <div class="required field {{  $errors->has('name') ? 'error' : '' }}">
+                    <div class="field">
                         <label>Where is it?</label>
-                        <div class="ui input fluid">                        
-                            <div class="ui selection dropdown">
-                                <input type="hidden" name="location">
-                                <i class="dropdown icon"></i>
-                                <div class="default text">Manila</div>
-                                <div class="menu">
-                                    @foreach($locations as $location)
-                                        <div class="item" data-value="{{ $location->id }}">{{ $location->name }}</div>
-                                    @endforeach
-                                </div>
+                        <div class="ui selection dropdown">
+                            <input type="hidden" name="location">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Manila</div>
+                            <div class="menu">
+                                @foreach($locations as $location)
+                                    <div class="item" data-value="{{ $location->id }}">{{ $location->name }}</div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
-                </form>-->
+                    <div class="field">
+                        <label>Describe the experience</label>
+                        <textarea rows="3" placeholder="Good memories and bad decisions"></textarea>
+                    </div>
+                    <a id="back-button-itinerary" class="head-font"><i class="left floated arrow left icon"></i>Back</a>
+                    <button id="next-button-itinerary" type="button" class="ui huge button button-shaded right floated">Post!</button>
+                </div>
+                </form>
                 
             </div>
         </div>
@@ -69,5 +74,29 @@
     </div>
 
 </div>
+
+@endsection
+
+@section('scripts')
+    
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#next-button-setup").click(function(){
+        $("#setup").hide();
+        $("#header-setup").hide();
+        $("#add-itinerary").show();
+        $("#header-itinerary").show();
+    });
+
+    $("#back-button-itinerary").click(function(){
+        $("#add-itinerary").hide();
+        $("#header-itinerary").hide();
+        $("#setup").show();
+        $("#header-setup").show();
+    });
+});
+
+</script>
 
 @endsection
