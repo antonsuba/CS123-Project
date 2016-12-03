@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Suggestion;
 use App\Place;
 use App\Location;
+use App\Activities;
+use App\Http\Controllers\Traits;
 use App\Http\Requests;
 
 class SuggestionController extends Controller
@@ -14,6 +16,8 @@ class SuggestionController extends Controller
     /**
     *Handling Suggestions
     */
+
+    use ActivityTraits;
 
     public function rateSuggestion($suggestionID, $rating){
         $sug = Suggestion::find($suggestionID);
@@ -27,7 +31,7 @@ class SuggestionController extends Controller
         
     }
 
-    public function createSuggestion($title, $description, $locationName, $places){
+    public function createSuggestion($title, $description, $locationName, $activities){
         $newSuggestion = new Suggestion;
 
         $newSuggestion->name = $title;
@@ -37,21 +41,42 @@ class SuggestionController extends Controller
         $newSuggestion->location_id = $suggestionLocationID;
         $newSuggestion->save();
 
-        foreach($places as $placeArray){
-            $location = Location::where('name', $placeArray[1])->first();
-            $RowCount = Place::where(['name' => $placeArray[0], 'location_id' => $location->id])->get()->count();
-            //$locationRowCount = Location::where('name', $placeArray[1])->get()->count();
-            if(RowCount > 0){
-                $place = Place::where('name', $placeArray[0])->first();
-            } else{
-                $place = new Place;
-                $place->name = $placeArray[0];
-                $place->description = $placeArray[1];
-                $placeLocationID = Location::where('name', $placeArray[2])->first()->id;
-                $place->location_id = $placeLocationID;
-                $place->save();
-            }
-            $newSuggestion->places()->attach($place->id);
+        foreach($activities as $activity){
+            $suggestionID = $newSuggestion->id;
+            $newActivity = $this->createActivity($suggestionID, $activity[0], $activity[1], $activity[2]);
         }
+    }
+
+    public function getSuggestionDetails($suggestionID){
+        $suggestion = Suggestion::find($suggestionID);
+        $name = $suggestion->name;
+        $description = $suggestion->description;
+        $location = Location::find($suggestion->location_id);
+        $locationName = $location->name;
+
+        $suggestionDetails = array($name, $description, $locationName);
+        return $suggestionDetails;
+    }
+
+    public function getActivities($suggestionID){
+        $suggestion = Suggestion::find($suggestionID);
+        $activities = $suggestion->activities()->get();
+
+        return $activities;
+    }
+
+    public function getPlaces($suggestionID){
+        $suggestion = Suggestion::find($suggestionID);
+        $activities = $suggestion->activities()->get();
+
+        $i = 0;
+        $places = array();
+        foreach ($activities as $activity) {
+            $place = $activity->place();
+            $places[i] = $place;
+            $i++;
+        }
+
+        return $places;
     }
 }
