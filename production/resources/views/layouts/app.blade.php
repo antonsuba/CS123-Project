@@ -26,7 +26,7 @@
 <div class="ui one column grid">
     <div class="ui top fixed menu borderless"><!-- Wild Card Title Bar -->
         <div class="item">
-            <h1 class="title-navbar">
+            <h1 class="title-navbar" onclick="window.location='/home'">
                 Wild Card
             </h1>
         </div>

@@ -13,6 +13,7 @@ use App\Preference_Suggestion;
 use App\AvailPref;
 use App\Location;
 use App\Place;
+use App\Activity;
 
 class Seeder extends Controller
 {
@@ -23,7 +24,8 @@ class Seeder extends Controller
         $this->populateSuggestions();
         $this->populatePrefSuggestions();
         $this->populateAvailPrefs(); 
-        $this->populatePlaces();  
+        $this->populatePlaces(); 
+        $this->populateActivities(); 
     }
 
     public function populateCategories(){
@@ -191,7 +193,7 @@ class Seeder extends Controller
 
     public function populatePlaces(){
         $places = array(
-            ['name' => 'The Bunk', 'location_id' => 1, 'suggestion_id' => 1, 'description' => 'Rooftop bar cum art gallery. Enjoy a glass of beer with music from local indie bands',
+            ['name' => 'The Bunk', 'location_id' => 1, 'suggestion_id' => 1, 'description' => 'Rooftop bar cum art gallery',
                 'img_src' => 'http://rochelleabella.com/wp-content/uploads/2016/01/IMG_9107.jpg'],
             ['name' => 'Finders Keepers', 'location_id' => 1, 'suggestion_id' => 1, 'description' => 'Obscure warehouse lounge with an intimate long bar, curated music, crafted cocktails, draft & bottled beers',
                 'img_src' => 'https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s640x640/sh0.08/e35/11925616_1047949228550818_1910383083_n.jpg']
@@ -209,5 +211,23 @@ class Seeder extends Controller
         }
 
         echo 'Locations population successfull';
+    }
+
+    public function populateActivities(){
+        $activities = array(
+            ['suggestion_id' => 1, 'place_id' => 1, 'description' => 'Enjoy a glass of beer with some indie music and a great view of the city'],
+            ['suggestion_id' => 1, 'place_id' => 2, 'description' => 'Get wasted with overpriced cocktails']
+        );
+
+        foreach($activities as $activity){
+            $model = new Activity;
+            $model->suggestion_id = $activity['suggestion_id'];
+            $model->place_id = $activity['place_id'];
+            $model->description = $activity['description'];
+
+            $model->save();
+        }
+
+        echo 'Activities population successfull';
     }
 }
