@@ -8,13 +8,17 @@ use App\Suggestion;
 
 trait SuggestionTraits{
     public function getSuggestionDetails($suggestionID){
-        $suggestion = Suggestion::find($suggestionID);
+        /*$suggestion = Suggestion::find($suggestionID);
         $name = $suggestion->name;
         $description = $suggestion->description;
         $location = Location::find($suggestion->location_id);
-        $locationName = $location->name;
+        $locationName = $location->name;*/
 
-        $suggestionDetails = array($name, $description, $locationName);
+        $suggestionDetails = Suggestion::find($suggestionID)
+                                ->join('locations', 'suggestions.location_id', '=', 'locations.id')
+                                ->get(['suggestions.name AS name', 'suggestions.description', 'suggestions.rating', 'suggestions.img_src', 'locations.name AS city']);
+
+        //$suggestionDetails = array($name, $description, $locationName);
         return $suggestionDetails;
     }
 

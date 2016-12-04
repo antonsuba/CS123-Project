@@ -201,7 +201,7 @@ class Seeder extends Controller
             $model = new Place;
             $model->name = $place['name'];
             $model->location_id = $place['location_id'];
-            $model->suggestion_id = $place['suggestion_id'];
+            //$model->suggestion_id = $place['suggestion_id'];
             $model->description = $place['description'];
             $model->img_src = $place['img_src'];
 

@@ -4,6 +4,7 @@
 /********** Boiler Plate CSS ************/
 body {
     background-color: #FFFFFF;
+	color: #716b6b;
 	font-family: 'Hind', sans-serif;
 	font-size: 1.2em;
 }
@@ -23,6 +24,12 @@ h2{
 	color: #484848;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 1.8em;
+}
+
+h3{
+	color: #484848;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.2em;
 }
 
 a:hover{
@@ -140,3 +147,9 @@ label{
 }
 
 /********** Detail Page ****************/
+
+.rating-star{
+	background: -webkit-linear-gradient(90deg, #FD6F46 10%, #FB9832 90%) !important;
+	-webkit-background-clip: text !important;
+  	
+}
