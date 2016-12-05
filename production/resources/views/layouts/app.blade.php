@@ -20,6 +20,10 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script> -->
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMqIdlNL1E-Rfw4SWL1hwQuwZ-MCZEaJk&callback=initMap">
+    </script>
 </head>
 
 <body>
@@ -70,6 +74,7 @@
     });
 </script>
 
+<script src="/js/geoLocator.js"></script>
 <script src="/js/semantic.min.js"></script>
 
 <script type="text/javascript">

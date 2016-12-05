@@ -14,8 +14,8 @@
 				<h1>{{ $detail->name }}</h1>
 				<p class="head-font">{{ $detail->city }} </p>
 				<div class="ui rating rating-star" data-rating="{{ $detail->rating }}" data-max-rating="5"></div>
-				<button class="ui small button button-shaded right floated">Invite Friends</button>
-				<button class="ui small basic grey button right floated">Bookmark</button>
+				<button id="invite-button" class="ui small button button-shaded right floated">Invite Friends</button>
+				<button id="bookmark-button" class="ui small basic grey button right floated">Bookmark</button>
 
 				<div class="ui section divider"></div>
 
@@ -48,12 +48,39 @@
 
 </div>
 
+<!-- Invite Friends Modal -->
+<div class="ui modal">
+	<i class="close icon"></i>
+	<div class="header">
+    	Invite your friends
+  	</div>
+</div>
+
 @endsection
 
 @section('scripts')
 
 <script type="text/javascript">
+
+$(document).ready(function(){
 	$('.ui.rating').rating();
+
+	$('.ui.modal').modal('attach events', '#invite-button', 'show');
+
+	$('#bookmark-button').click(function(){
+		var suggestionID = {{ $activities[0]->suggestion_id }};
+		$.ajax({
+			dataType: 'json',
+			type: "POST",
+			url: "/bookmark/add",
+			data: {suggestionID: suggestionID},
+			success: function(msg){
+				console.log(msg);
+			}
+		});
+	});
+});
+	
 </script>
 
 @endsection

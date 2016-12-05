@@ -26,7 +26,7 @@ trait SuggestionTraits{
         $suggestion = Suggestion::find($suggestionID);
         $activities = $suggestion->activities()
                         ->join('places', 'activities.place_id', '=', 'places.id')
-                        ->get(['places.name', 'places.img_src', 'activities.description']);
+                        ->get(['activities.suggestion_id', 'places.name', 'places.img_src', 'activities.description']);
 
         return $activities;
     }

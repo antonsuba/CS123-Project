@@ -20,18 +20,6 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('search',function(){
-	return view('search');
-});
-
-Route::get('detail',function(){
-	return view('detail');
-});
-
-/*Route::get('sh',function(){
-	return view('searchHelp');
-});*/
-
 /*
 |--------------------------------------------------------------------------
 | Auth Routes
@@ -59,7 +47,14 @@ Route::get('/suggest/{quantity}/{offset}', 'RecommendationEngine@getSuggestions'
 
 /*
 |--------------------------------------------------------------------------
-|Seeder Routes
+| AJAX Routes
+|--------------------------------------------------------------------------
+*/
+Route::post('/bookmark/add', 'BookmarkController@saveBookmark');
+
+/*
+|--------------------------------------------------------------------------
+| Seeder Routes
 |--------------------------------------------------------------------------
 */
 Route::get('/seeder/seedall', 'Seeder@seedAll');
