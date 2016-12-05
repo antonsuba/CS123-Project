@@ -20,7 +20,7 @@ class BookmarkController extends Controller
     }
 
     public function saveBookmark($suggestionID){
-        $sug = Preference_Suggestion::where('suggestion_id', $suggestionID);
+        $sug = Preference_Suggestion::find($suggestionID);
         $sug_id = $sug->suggestion_id;
 
         $pref = Preference::find($sug->preference_id);
