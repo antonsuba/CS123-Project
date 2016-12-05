@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Preference_Suggestion;
+use App\Suggestion;
 use App\Bookmark;
+use Illuminate\Support\Facades\Auth;
 
 class BookmarkController extends Controller
 {
@@ -26,14 +27,14 @@ class BookmarkController extends Controller
         $inputs = $request->input();
         $suggestionID = $inputs['suggestionID'];
 
-        $sug = Preference_Suggestion::find($suggestionID);
-        $sug_id = $sug->suggestion_id;
+        $suggestion = Suggestion::find($suggestionID);
+        $sug_id = $suggestion->id;
         $bookmark = new Bookmark;
         $bookmark->user_id = Auth::id();
-        $bookmark->category_id = $cat_id;
+        //$bookmark->category_id = $cat_id;
         $bookmark->save();
 
-        return response()->json($suggestionID);
+        return response()->json("Bookmarked");
     }
 
     public function removeBookmark($bookmarkID){
