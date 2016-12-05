@@ -40,8 +40,6 @@ class BookmarkController extends Controller
     public function showBookmarks(){
         $userBookmarks = Bookmark::where('user_id', Auth::id())->get();
 
-        foreach($userBookmarks as $bookmark){
-            echo $bookmark->name;
-        }
+        return $userBookmarks;
     }
 }
