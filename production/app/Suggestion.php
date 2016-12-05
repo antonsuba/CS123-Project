@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Suggestion extends Model
 {
     public function preferences(){
-        return $this->belongsToMany('App\Preference');
+        return $this->belongsToMany('App\Preference')->withTimestamps();
     }
 
     public function location(){
