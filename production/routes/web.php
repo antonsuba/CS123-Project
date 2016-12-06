@@ -51,7 +51,8 @@ Route::get('/suggest/{quantity}/{offset}', 'RecommendationEngine@getSuggestions'
 |--------------------------------------------------------------------------
 */
 Route::post('/bookmark/add', 'BookmarkController@saveBookmark');
-Route::post('/create-an-experience/uploadThat/', 'ImageController@uploadImage');
+Route::post('/create-an-experience/uploadThat', 'ImageController@uploadImage');
+Route::post('/create-an-experience/saveLocation/{locationData}', 'LocationController@saveLocation');
 
 /*
 |--------------------------------------------------------------------------

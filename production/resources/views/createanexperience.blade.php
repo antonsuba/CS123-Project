@@ -163,6 +163,27 @@ $(document).ready(function(){
 		}          
 		});
 	 }));
+	 
+	 //To add Location when destination added
+	 $("#add-button-itinerary").on('submit',(function(e) {
+	  e.preventDefault();
+	  var locationData = getLocationData();
+	  $.ajax({
+		url: "/create-an-experience/uploadThat/",
+		type: "POST",
+		data:  locationData,
+		contentType: false,
+		success: function(data)
+		{
+			Console.log("YATA");
+			Alert("SUCCESS");
+		},
+		error: function(e) {
+			Console.log("Nada");
+			Alert("Fail");
+		}          
+		});
+	 }));
 
 	// Function to preview image after validation
 	$(function() {

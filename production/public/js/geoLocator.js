@@ -191,10 +191,16 @@ function markForItinerary(){ //This is when loading the suggestion, so we'll hav
 	
 }
 
-function saveDestination(){
-	var lat = place.geometry.location.lat();
-	var lng = place.geometry.location.lng();
-	var document.getElementById('name');
+function getLocationData(){
+	var latitude = place.geometry.location.lat();
+	var longitude = place.geometry.location.lng();
+	var destName = document.getElementById('name');
+	var destData = {
+		name: destName,
+		lat: latitude,
+		lng: longitude
+	};
+	return locationData;
 }
 
 function destinationMarker(pos,name,map){
