@@ -55,6 +55,8 @@ DROP TABLE IF EXISTS locations;
 CREATE TABLE locations(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
 name varchar(255),
+lat float,
+lng float,
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );
