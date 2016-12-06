@@ -93,7 +93,6 @@
 					<div id="selectImage">
 					<label>Select Your Image</label><br/>
 					<input id="file" type="file" accept="image/*" name="image" />
-					<input id="button" type="submit" value="Upload">
 					</div>
 				</form>
             </div>
