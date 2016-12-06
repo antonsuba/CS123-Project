@@ -15,9 +15,9 @@ class LocationController extends Controller
 		$lng = $locationData['lng'];
 
         $location = new Location;
-		$location->name = $name
-		$location->lat = $lat
-		$location->lng = $lng
+		$location->name = $name;
+		$location->lat = $lat;
+		$location->lng = $lng;
         $location->save();
 		
         return response()->json("Location Saved");
