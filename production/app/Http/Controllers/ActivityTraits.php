@@ -25,6 +25,8 @@ trait ActivityTraits {
                 $place->image_id = $imageID;
                 $place->save();
             }
+
+            $place->activities()->attach($activity->id);
             $activity->place_id = $place->id;
 
             return $activity;

@@ -26,7 +26,7 @@ class Seeder extends Controller
         $this->populateAvailPrefs(); 
         $this->populatePlaces(); 
         $this->populateActivities(); 
-        //$this->populateActivityPlace();
+        $this->populateActivityPlace();
     }
 
     public function populateCategories(){
