@@ -89,11 +89,11 @@ function initMap() {
 			
 			var defbounds = new google.maps.LatLngBounds(new google.maps.LatLng(n,w),new google.maps.LatLng(s,w));
 			
-			
+			console.log(userDetails.results[0].address_components[5].short_name);
 			
 			var nioptions = {
 				bounds: defbounds,
-				componentRestrictions:{country: userDetails.results[0].address_components[4].short_name}
+				componentRestrictions:{country: userDetails.results[0].address_components[5].short_name}
 			};
 			
 			if(nameInput !== null){ // Creates the autocomplete
@@ -185,7 +185,7 @@ function manual(){
 }
 
 function getGeocode(){
-	var name = document.getElementById('name');
+	var name = document.getElementById('next-button-itinerary');
 	var place = autocomplete.getPlace();
 	console.log("Get geocode function");
 	pos = {lat: place.geometry.location.lat(),lng: place.geometry.location.lng()};
