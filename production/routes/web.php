@@ -45,14 +45,13 @@ Route::get('/bookmark', 'BookmarkController@index');
 Route::get('/suggestbycat/{categoryID}/{quantity}/{offset}', 'RecommendationEngine@getSuggestionsByCategory');
 Route::get('/suggest/{quantity}/{offset}', 'RecommendationEngine@getSuggestions');
 
-Route::get('/home/create-an-experience/', 'ImageController@uploadImage');
-
 /*
 |--------------------------------------------------------------------------
 | AJAX Routes
 |--------------------------------------------------------------------------
 */
 Route::post('/bookmark/add', 'BookmarkController@saveBookmark');
+Route::get('/home/create-an-experience/', 'ImageController@uploadImage');
 
 /*
 |--------------------------------------------------------------------------
