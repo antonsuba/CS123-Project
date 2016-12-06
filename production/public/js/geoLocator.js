@@ -100,6 +100,8 @@ function initMap() {
 				componentRestrictions:{country: "PH"}
 			};
 			
+			
+			console.log(typeof nameInput);
 			if(nameInput !== null){ // Creates the autocomplete
 				console.log("Creating autocomplete...");
 				autocomplete = new google.maps.places.Autocomplete(nameInput, nioptions);
