@@ -61,8 +61,10 @@ class RecommendationEngine extends Controller
     public function updateSuggestionRating($suggestionID, $score){
         $suggestion = Suggestion::find($suggestionID);
 
+        $rateCount = $suggestion->rate_count;
         $previousRating = $suggestion->rating;
-        $newRating;
+        $newRating = ($score + $previousRating)/($rateCount + 1);
+        $suggestion->rate_count = $rateCount + 1;
 
         $suggestion->save();
     }
