@@ -51,11 +51,12 @@ Route::get('/suggest/{quantity}/{offset}', 'RecommendationEngine@getSuggestions'
 |--------------------------------------------------------------------------
 */
 Route::post('/bookmark/add', 'BookmarkController@saveBookmark');
+
+Route::post('/bookmark/rate/', 'RecommendationEngine@updateSuggestionRating');
+Route::post('/bookmark/increment/', 'RecommendationEngine@updateSuggestionPopularity');
+
 Route::post('/create-an-experience/uploadThat', 'ImageController@uploadImage');
 Route::post('/create-an-experience/saveLocation/{locationData}', 'LocationController@saveLocation');
-
-Route::post('/suggest/recommend/{suggestionID}/{score}', 'RecommendationEngine@updateSuggestionRating');
-Route::post('/suggest/recommend/{suggestionID}/{increment}', 'RecommendationEngine@updateSuggestionPopularity');
 
 /*
 |--------------------------------------------------------------------------
