@@ -187,7 +187,7 @@ function manual(){
 function getGeocode(){
 	var name = document.getElementById('next-button-itinerary');
 	var place = autocomplete.getPlace();
-	console.log("Get geocode function");
+	console.log("Get geocode function, lat= " + place.geometry.location.lat() +"; lng= " + place.geometry.location.lng());
 	pos = {lat: place.geometry.location.lat(),lng: place.geometry.location.lng()};
 	/* Debugging
 	document.getElementById('lat').value = place.geometry.location.lat();
