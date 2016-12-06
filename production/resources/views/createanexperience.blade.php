@@ -93,7 +93,6 @@
 					<div id="selectImage">
 					<label>Select Your Image</label><br/>
 					<input id="file" type="file" accept="image/*" name="image" />
-					<input id="button" type="submit" value="Upload">
 					</div>
 				</form>
             </div>
@@ -169,6 +168,7 @@ $(document).ready(function(){
 		url: "/create-an-experience/saveLocation/{locationData}",
 		type: "POST",
 		data:  locationData,
+		dataType: application/json,
 		success: function()
 		{
 			

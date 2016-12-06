@@ -20,6 +20,7 @@ function initMap() {
 	
 
 	// Try HTML5 geolocation.
+	
 	if (navigator.geolocation) {
 	  navigator.geolocation.getCurrentPosition(function(position) {
 		var pos = {
@@ -43,8 +44,9 @@ function initMap() {
 		
 		
 		var nioptions = {
-			bounds: defbounds,
-			componentRestrictions:{country: userDetails.results[0].address_components[4].short_name}
+			//bounds: defbounds,
+			//componentRestrictions:{country: userDetails.results[0].address_components[5].short_name}
+			componentRestrictions:{country: "PH"}
 		};
 		
 		autocomplete = new google.maps.places.Autocomplete(nameInput, nioptions);
@@ -93,10 +95,13 @@ function initMap() {
 			console.log(userDetails.results[0].address_components[5].short_name);
 			
 			var nioptions = {
-				bounds: defbounds,
-				componentRestrictions:{country: userDetails.results[0].address_components[5].short_name}
+				//bounds: defbounds,
+				//componentRestrictions:{country: userDetails.results[0].address_components[5].short_name}
+				componentRestrictions:{country: "PH"}
 			};
 			
+			
+			console.log(typeof nameInput);
 			if(nameInput !== null){ // Creates the autocomplete
 				console.log("Creating autocomplete...");
 				autocomplete = new google.maps.places.Autocomplete(nameInput, nioptions);
