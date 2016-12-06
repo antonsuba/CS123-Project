@@ -191,14 +191,14 @@ function markForItinerary(){ //This is when loading the suggestion, so we'll hav
 	
 }
 
-function getLocationData(){
-	var latitude = place.geometry.location.lat();
-	var longitude = place.geometry.location.lng();
-	var locationName = document.getElementById('name');
+function getLocationData(){ //made it JSON
+	var latitude = 10;
+	var longitude = 11;
+	var locationName = "Huckleberry";
 	var locationData = {
-		name: locationName,
-		lat: latitude,
-		lng: longitude
+		"name": locationName,
+		"lat": latitude,
+		"lng": longitude
 	};
 	return locationData;
 }

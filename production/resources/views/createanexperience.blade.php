@@ -165,18 +165,15 @@ $(document).ready(function(){
 	  e.preventDefault();
 	  var locationData = getLocationData();
 	  $.ajax({
-		url: "/create-an-experience/saveLocation/",
+		url: "/create-an-experience/saveLocation/{locationData}",
 		type: "POST",
 		data:  locationData,
-		contentType: application/json,
-		success: function(data)
+		dataType: application/json,
+		success: function()
 		{
-			Console.log("YATA");
-			Alert("SUCCESS");
+			
 		},
 		error: function(e) {
-			Console.log("Nada");
-			Alert("Fail");
 		}          
 		});
 	 }));
