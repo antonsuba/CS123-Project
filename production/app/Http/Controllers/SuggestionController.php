@@ -31,7 +31,7 @@ class SuggestionController extends Controller
         
     }
 
-    public function createSuggestion($title, $description, $locationName, $activities){
+    public function createSuggestion($title, $description, $locationName, $activities, $imageID){
         $newSuggestion = new Suggestion;
 
         $newSuggestion->name = $title;
@@ -39,6 +39,7 @@ class SuggestionController extends Controller
 
         $suggestionLocationID = Location::where('name', $locationName)->first()->id;
         $newSuggestion->location_id = $suggestionLocationID;
+        $newSuggestion->image_id = $imageID;
         $newSuggestion->save();
 
         foreach($activities as $activity){

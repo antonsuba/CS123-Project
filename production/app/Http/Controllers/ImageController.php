@@ -12,7 +12,7 @@ class ImageController extends Controller
 {
     public function uploadImage(){
         if(isset($_POST['image']['type'])){
-            $imageName = $_FILES['image']['name'];
+            //$imageName = $_FILES['image']['name'];
             $imageSize = $_FILES['image']['size'];
             $imageTmp = $_FILES['image']['tmp_name'];
             $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION));
@@ -28,7 +28,26 @@ class ImageController extends Controller
                 $errors[] = "Image size is too large";
             }
 
-            $destinationPath = "app/resources/images/";
+            $destinationPath = "resources/images/";
+
+            $imageCount = count(Image::all());
+            $imageName = $imageCount + 1;            
+            
+            $image = new Image;
+            $image->name = $imageName;
+            $image->save();
+            
+            /*if($referenceTable === 'suggestion'){
+                $suggestion = Suggestion::find($referenceID);
+
+                $imageName = $suggestion->name.".".$imgExt;
+            } else if($referenceTable === 'place'){
+                $place = Place::find($referenceID);
+
+                $imageName = $place->name.".".$imgExt;
+            }*/
+
+            move_uploaded_file($imageTmp, $destinationPath.$imageName);
         }
     }
     

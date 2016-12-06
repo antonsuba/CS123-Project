@@ -7,7 +7,7 @@ use App\Location;
 
 trait ActivityTraits {
 
-    public function createActivity($suggestionID, $description, $placeName, $locationName) {
+    public function createActivity($suggestionID, $description, $placeName, $locationName, $imageID) {
             $activity = new Activity;
             $activity->suggestion_id = $suggestionID;
             $activity->description = $description;
@@ -22,6 +22,7 @@ trait ActivityTraits {
                 $place->name = $placeName;
                 //$place->description = $placeArray[1];
                 $place->location_id = $location->id;
+                $place->image_id = $imageID;
                 $place->save();
             }
             $activity->place_id = $place->id;
