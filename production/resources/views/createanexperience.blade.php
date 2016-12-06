@@ -158,8 +158,7 @@ $(document).ready(function(){
 			 $("#form")[0].reset(); 
 			}
 		},
-		error: function(e) 
-		{
+		error: function(e) {
 		$("#err").html(e).fadeIn();
 		}          
 		});

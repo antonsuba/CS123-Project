@@ -46,7 +46,6 @@ class ImageController extends Controller
 
                 $imageName = $place->name.".".$imgExt;
             }*/
-
             move_uploaded_file($imageTmp, $destinationPath.$imageName);
         }
     }
