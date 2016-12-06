@@ -12,4 +12,8 @@ class Place extends Model
     public function activities(){
         return  $this->hasMany('App\Activity');
     }
+
+    public function image(){
+        return $this->belongsTo('App\Image');
+    }
 }
