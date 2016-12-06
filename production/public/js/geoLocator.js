@@ -192,9 +192,9 @@ function markForItinerary(){ //This is when loading the suggestion, so we'll hav
 }
 
 function getLocationData(){ //made it JSON
-	var latitude = 10;
-	var longitude = 11;
-	var locationName = "Huckleberry";
+	var latitude = place.geometry.location.lat();
+	var longitude = place.geometry.location.lng();
+	var locationName = document.getElementById('name').value;
 	var locationData = {
 		"name": locationName,
 		"lat": latitude,

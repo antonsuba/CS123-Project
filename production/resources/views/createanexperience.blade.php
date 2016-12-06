@@ -168,7 +168,6 @@ $(document).ready(function(){
 		url: "/create-an-experience/saveLocation/{locationData}",
 		type: "POST",
 		data:  locationData,
-		dataType: application/json,
 		success: function()
 		{
 			
