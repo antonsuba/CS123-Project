@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Preference;
 use App\AvailPref;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 
