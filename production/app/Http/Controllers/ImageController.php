@@ -46,7 +46,13 @@ class ImageController extends Controller
 
                 $imageName = $place->name.".".$imgExt;
             }*/
-            move_uploaded_file($imageTmp, $destinationPath.$imageName);
+
+            if(empty($errors)){
+                move_uploaded_file($imageTmp, $destinationPath.$imageName);
+                return response()->json("Image uploaded");
+            } else{
+                return response()->json($errors);
+            }
         }
     }
     
