@@ -68,6 +68,8 @@ name varchar(255),
 rating int,
 location_id int,
 FOREIGN KEY(location_id) REFERENCES locations(id),
+image_id int,
+FOREIGN KEY(image_id) REFERENCES images(id),
 description varchar(255),
 popularity int,
 weight decimal(7,3),
@@ -82,6 +84,8 @@ id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 name varchar(255), 
 location_id int,
 FOREIGN KEY(location_id) REFERENCES locations(id),
+image_id int,
+FOREIGN KEY(image_id) REFERENCES images(id),
 description varchar(255),
 img_src varchar(255),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
@@ -138,6 +142,15 @@ user_id int,
 FOREIGN KEY(user_id) REFERENCES users(id),
 category_id int,
 FOREIGN KEY(category_id) REFERENCES categories(id),
+updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
+created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
+);
+
+DROP TABLE IF EXISTS images;
+CREATE TABLE images(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name varchar(255),
+image varchar(255),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );
