@@ -143,8 +143,9 @@ $(document).ready(function(){
 		//$("#preview").fadeOut();
 		$("#err").fadeOut();
 		},
-		success: function(data)
-		{
+		success: function(data, msg)
+		{	
+			console.log(msg);
 			if(data=='invalid file'){
 			 // invalid file format.
 			 $("#err").html("Invalid File !").fadeIn();

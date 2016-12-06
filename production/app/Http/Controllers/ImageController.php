@@ -11,11 +11,11 @@ use App\Suggestion;
 class ImageController extends Controller
 {
     public function uploadImage(){
-        if(isset($_POST['image']['type'])){
+        if(isset($_POST['image'])){
             //$imageName = $_FILES['image']['name'];
             $imageSize = $_FILES['image']['size'];
             $imageTmp = $_FILES['image']['tmp_name'];
-            $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION));
+            $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION));
 
             $validExtensions = array('jpg', 'jpeg', 'png');
             $errors = array();
@@ -28,7 +28,7 @@ class ImageController extends Controller
                 $errors[] = "Image size is too large";
             }
 
-            $destinationPath = "resources/images/";
+            $destinationPath = "/resources/images/";
 
             $imageCount = count(Image::all());
             $imageName = $imageCount + 1;            
@@ -46,13 +46,18 @@ class ImageController extends Controller
 
                 $imageName = $place->name.".".$imgExt;
             }*/
+            return response()->json("Image uploaded");
 
             if(empty($errors)){
                 move_uploaded_file($imageTmp, $destinationPath.$imageName);
                 return response()->json("Image uploaded");
+                print "image uploaded";
             } else{
                 return response()->json($errors);
+                print $errors;
             }
+        } else{
+            return response()->json("fuck u");
         }
     }
     
