@@ -51,14 +51,18 @@
                         <textarea rows="3" placeholder="eg. Enjoy a cold beer with a great view of the city"></textarea>
                     </div>
                      <a id="back-button-itinerary" class="head-font"><i class="left floated arrow left icon"></i>Back</a>
-                    <button id="next-button-itinerary" type="submit" class="ui large button button-shaded right floated" onclick="manual();">Add Destination</button>
+					 
+					 <!-- Changed id from next-button-itinerary to add-button-itinerary since ids are supposed to be unique after all (use class if they are the same in some way)-->
+                    <button id="add-button-itinerary" type="submit" class="ui large button button-shaded right floated" onclick="manual();">Add Destination</button>
 
                     
 
                     {{-- <div class="ui section divider"></div>
 
                     <a id="back-button-itinerary" class="head-font"><i class="left floated arrow left icon"></i>Back</a>
-                    <button id="next-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Done!</button> --}}
+					
+					<!-- Changed id from next-button-itinerary to done-button-itinerary since ids are supposed to be unique after all (use class if they are the same in some way)-->
+                    <button id="done-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Done!</button> --}}
                 </div>
                 
                 <br><br> 
@@ -85,11 +89,11 @@
 				<form id="img-upload-box" action="" method="post" enctype="multipart/form-data">
 					<!-- Image taken from: happysock.eu -->
 					<div id="image_preview"><img id="previewing" src="http://happysock.eu/wp-content/themes/mt-four/assets/images/no-img.jpg"/></div>
-						<hr id="line">
-						<div id="selectImage">
-						<label>Select Your Image</label><br/>
-						<input type="file" name="file" id="file" required />
-						<input type="submit" value="Upload" class="submit" />
+					<hr id="line">
+					<div id="selectImage">
+					<label>Select Your Image</label><br/>
+					<input type="file" name="file" id="file" required />
+					<input type="submit" value="Upload" class="submitImage" />
 					</div>
 				</form>
             </div>
@@ -124,6 +128,69 @@ $(document).ready(function(){
         $('#img-upload-box').show();
         $("#prompt-header").html("Create an experience for others to try out");
     });
+	
+	$("#add-button-itinerary").click(function(){
+        return false; //just to make it stop refreshing all the time
+    });
+	
+	//Uploading the image
+	$("#img-upload-box").on('submit',(function(e) {
+	  e.preventDefault();
+	  $.ajax({
+		url: "/home/create-an-experience/",
+		type: "POST",
+		data:  new FormData(this),
+		contentType: false,
+		cache: false,
+		processData:false,
+		beforeSend : function(){
+		//$("#preview").fadeOut();
+		$("#err").fadeOut();
+		},
+		success: function(data)
+		{
+			if(data=='invalid file'){
+			 // invalid file format.
+			 $("#err").html("Invalid File !").fadeIn();
+			}else{
+			 // view uploaded file.
+			 $("#preview").html(data).fadeIn();
+			 $("#form")[0].reset(); 
+			}
+		},
+		error: function(e) 
+		{
+		$("#err").html(e).fadeIn();
+		}          
+		});
+	 }));
+
+	// Function to preview image after validation
+	$(function() {
+		$("#file").change(function() {
+			$("#message").empty(); // To remove the previous error message
+			var file = this.files[0];
+			var imagefile = file.type;
+			var match= ["image/jpeg","image/png","image/jpg"];
+			if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
+				$('#previewing').attr('src','noimage.png');
+				$("#message").html("<p id='error'>Please Select A valid Image File</p>"+"<h4>Note</h4>"+"<span id='error_message'>Only jpeg, jpg and png Images type allowed</span>");
+				return false;
+			}else{
+				var reader = new FileReader();
+				reader.onload = imageIsLoaded;
+				reader.readAsDataURL(this.files[0]);
+			}
+		});
+	});
+	
+	function imageIsLoaded(e) {
+		$("#file").css("color","green");
+		$('#image_preview').css("display", "block");
+		$('#previewing').attr('src', e.target.result);
+		$('#previewing').attr('width', '250px');
+		$('#previewing').attr('height', '230px');
+	};
 	
 });
 

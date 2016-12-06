@@ -65,7 +65,7 @@ function initMap() {
 		if(document.getElementById('map') !== null){ // This if statement is so that in case there is no div with an id of "map" AKA no maps but need the location of the user
 			map = new google.maps.Map(document.getElementById('map'), {
 			  center: {lat: -34.397, lng: 150.644},
-			  zoom: 13
+			  zoom: 12
 			});
 			var infoWindow = new google.maps.InfoWindow({map: map});
 		}

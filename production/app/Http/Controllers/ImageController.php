@@ -15,7 +15,7 @@ class ImageController extends Controller
             $imageName = $_FILES['image']['name'];
             $imageSize = $_FILES['image']['size'];
             $imageTmp = $_FILES['image']['tmp_name'];
-            $imgExt = $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION));
+            $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION));
 
             $validExtensions = array('jpg', 'jpeg', 'png');
             $errors = array();
