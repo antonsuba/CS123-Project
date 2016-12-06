@@ -34,4 +34,8 @@ class User extends Authenticatable
     public function preferences(){
         return $this->belongsToMany('App\Preference');
     }
+
+    public function bookmarks(){
+        return $this->hasMany('App\Bookmark');
+    }
 }

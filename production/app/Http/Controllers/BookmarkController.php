@@ -20,7 +20,10 @@ class BookmarkController extends Controller
     }
 
     public function getBookmarks(){
-        
+        $currentUser = Auth::user();
+        $bookmarks = $currentUser->bookmarks()->get();
+
+        return $bookmarks;
     }
 
     public function saveBookmark(Request $request){
