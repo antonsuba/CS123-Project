@@ -36,6 +36,9 @@
                         <label>Describe the experience</label>
                         <textarea rows="3" placeholder="eg. Good memories and bad decisions"></textarea>
                     </div>
+					<div>
+						<input><input id="file" type="file" accept="image/*" name="image" /></input>
+					</div>
                     {{-- <a href="/home" class="head-font"><i class="left floated arrow left icon"></i>Back</a> --}}
                     <button id="next-button-setup" type="button" class="ui large button button-shaded right floated">Next</button>
                 </div>
@@ -142,9 +145,8 @@ $(document).ready(function(){
 		//$("#preview").fadeOut();
 		$("#err").fadeOut();
 		},
-		success: function(data, msg)
+		success: function(data)
 		{	
-			console.log(msg);
 			if(data=='invalid file'){
 			 // invalid file format.
 			 $("#err").html("Invalid File !").fadeIn();
