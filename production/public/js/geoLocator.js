@@ -7,6 +7,7 @@ var map;
 var service;
 var autocomplete;
 var pos;
+var place;
 function initMap() {
 	// This shall be used when using the map view
 	if(document.getElementById('map') !== null){ // This if statement is so that in case there is no div with an id of "map" AKA no maps but need the location of the user
@@ -174,10 +175,26 @@ function getUserAddress(pos){ //Gives City of User to AJAX or other javascript f
 }
 
 function markForItinerary(){ //This is when loading the suggestion, so we'll have a map to locate the suggested locations/destinations (get from db,)
-	var neededData; 
+	var destinations; 
 	$.getJSON('url', data, function(jsonData) {
 		neededData = jsonData; 
-	});  
+	});
+	
+	for(i = 0; i < Object.keys(destinations).length;i++){
+		var pos = {
+			lat: jsonData.lat[i],
+			lng: jsonData.lat[i]
+		};
+		var name = jsonData.name[i];
+		destinationMarker(pos,name,map);
+	}
+	
+}
+
+function saveDestination(){
+	var lat = place.geometry.location.lat();
+	var lng = place.geometry.location.lng();
+	var document.getElementById('name');
 }
 
 function destinationMarker(pos,name,map){
@@ -193,7 +210,7 @@ function manual(){
 
 function getGeocode(){
 	var name = document.getElementById('name').value.split(",")[0];
-	var place = autocomplete.getPlace();
+	place = autocomplete.getPlace();
 	console.log("Get geocode function, lat= " + place.geometry.location.lat() +"; lng= " + place.geometry.location.lng());
 	pos = {lat: place.geometry.location.lat(),lng: place.geometry.location.lng()};
 	/* Debugging

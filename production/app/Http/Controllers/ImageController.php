@@ -53,7 +53,6 @@ class ImageController extends Controller
             } else{
                 return response()->json($errors);
             }
-            
         }
     }
     
