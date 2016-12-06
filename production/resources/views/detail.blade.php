@@ -42,6 +42,7 @@
 
 			<div class="six wide column centered">
 				<img class="ui huge image" src="{{ $details[0]->img_src }}"/>
+				<div id=map style="height:50%;width=100%; margin-top:10%"><div>
 			</div>
 		</div>
 	</div>

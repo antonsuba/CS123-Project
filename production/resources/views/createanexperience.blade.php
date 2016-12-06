@@ -79,12 +79,24 @@
 
             <!-- Upload Image Div -->
             <div class="seven wide column">
+				<!--
                 <img id="img-upload-box" class="ui large image" src="https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s640x640/sh0.08/e35/11925616_1047949228550818_1910383083_n.jpg"/>
+				-->
+				<form id="img-upload-box" action="" method="post" enctype="multipart/form-data">
+					<!-- Image taken from: happysock.eu -->
+					<div id="image_preview"><img id="previewing" src="http://happysock.eu/wp-content/themes/mt-four/assets/images/no-img.jpg"/></div>
+						<hr id="line">
+						<div id="selectImage">
+						<label>Select Your Image</label><br/>
+						<input type="file" name="file" id="file" required />
+						<input type="submit" value="Upload" class="submit" />
+					</div>
+				</form>
             </div>
 
         </div>
 		
-		<div id="map" style="height:50%;width:50%;"></div>
+		<div id="map" style="height:50%;width:100%;"></div>
     
     </div>
 
@@ -112,6 +124,7 @@ $(document).ready(function(){
         $('#img-upload-box').show();
         $("#prompt-header").html("Create an experience for others to try out");
     });
+	
 });
 
 </script>

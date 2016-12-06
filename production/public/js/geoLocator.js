@@ -173,6 +173,13 @@ function getUserAddress(pos){ //Gives City of User to AJAX or other javascript f
 	
 }
 
+function markForItinerary(){ //This is when loading the suggestion, so we'll have a map to locate the suggested locations/destinations (get from db,)
+	var neededData; 
+	$.getJSON('url', data, function(jsonData) {
+		neededData = jsonData; 
+	});  
+}
+
 function destinationMarker(pos,name,map){
 	var infoWindow = new google.maps.InfoWindow({map: map});
 	infoWindow.setPosition(pos);
