@@ -129,10 +129,6 @@ $(document).ready(function(){
         $("#prompt-header").html("Create an experience for others to try out");
     });
 	
-	$("#add-button-itinerary").click(function(){
-        return false; //just to make it stop refreshing all the time
-    });
-	
 	//Uploading the image
 	$("#form").on('submit',(function(e) {
 	  e.preventDefault();
@@ -165,14 +161,14 @@ $(document).ready(function(){
 	 }));
 	 
 	 //To add Location when destination added
-	 $("#add-button-itinerary").on('submit',(function(e) {
+	 $("#add-button-itinerary").click('submit',(function(e) {
 	  e.preventDefault();
 	  var locationData = getLocationData();
 	  $.ajax({
-		url: "/create-an-experience/uploadThat/",
+		url: "/create-an-experience/saveLocation/",
 		type: "POST",
 		data:  locationData,
-		contentType: false,
+		contentType: application/json,
 		success: function(data)
 		{
 			Console.log("YATA");

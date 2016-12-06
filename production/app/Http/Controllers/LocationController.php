@@ -19,7 +19,9 @@ class LocationController extends Controller
 		$location->lat = $lat
 		$location->lng = $lng
         $location->save();
-
+		
+		echo($name);
+		
         return response()->json("Location Saved");
     }
 }

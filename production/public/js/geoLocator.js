@@ -194,9 +194,9 @@ function markForItinerary(){ //This is when loading the suggestion, so we'll hav
 function getLocationData(){
 	var latitude = place.geometry.location.lat();
 	var longitude = place.geometry.location.lng();
-	var destName = document.getElementById('name');
-	var destData = {
-		name: destName,
+	var locationName = document.getElementById('name');
+	var locationData = {
+		name: locationName,
 		lat: latitude,
 		lng: longitude
 	};
