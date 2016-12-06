@@ -51,7 +51,7 @@
                         <textarea rows="3" placeholder="eg. Enjoy a cold beer with a great view of the city"></textarea>
                     </div>
                      <a id="back-button-itinerary" class="head-font"><i class="left floated arrow left icon"></i>Back</a>
-                    <button id="next-button-itinerary" type="submit" class="ui large button button-shaded right floated">Add Destination</button>
+                    <button id="next-button-itinerary" type="submit" class="ui large button button-shaded right floated" onclick="manual();">Add Destination</button>
 
                     
 

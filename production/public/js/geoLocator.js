@@ -180,12 +180,12 @@ function destinationMarker(pos,name,map){
 }
 
 function manual(){
-	var name = document.getElementById('name').value;
+	var name = document.getElementById('name').value.split(",")[0];
 	destinationMarker(pos,name,map);
 }
 
 function getGeocode(){
-	var name = document.getElementById('next-button-itinerary');
+	var name = document.getElementById('name').value.split(",")[0];
 	var place = autocomplete.getPlace();
 	console.log("Get geocode function, lat= " + place.geometry.location.lat() +"; lng= " + place.geometry.location.lng());
 	pos = {lat: place.geometry.location.lat(),lng: place.geometry.location.lng()};
