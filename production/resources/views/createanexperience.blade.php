@@ -86,8 +86,10 @@
 				<!--
                 <img id="img-upload-box" class="ui large image" src="https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s640x640/sh0.08/e35/11925616_1047949228550818_1910383083_n.jpg"/>
 				-->
+				<!--
 				<form id="img-upload-box" action="" method="post" enctype="multipart/form-data">
 					<!-- Image taken from: happysock.eu -->
+				<!--
 					<div id="image_preview"><img id="previewing" src="http://happysock.eu/wp-content/themes/mt-four/assets/images/no-img.jpg"/></div>
 					<hr id="line">
 					<div id="selectImage">
@@ -96,6 +98,18 @@
 					<input type="submit" value="Upload" class="submitImage" />
 					</div>
 				</form>
+				-->
+				<div class="container">
+					<h1><a href="">Easy Ajax Image Upload with jQuery</a></h1>
+					<hr> 
+					<div id="preview"><img src="http://happysock.eu/wp-content/themes/mt-four/assets/images/no-img.jpg" /></div>
+
+					<form id="form" action="/create-an-experience/uploadThat/" method="post" enctype="multipart/form-data">
+					<input id="uploadImage" type="file" accept="image/*" name="image" />
+					<input id="button" type="submit" value="Upload">
+					</form>
+					<div id="err"></div>
+				</div>
             </div>
 
         </div>
@@ -134,10 +148,10 @@ $(document).ready(function(){
     });
 	
 	//Uploading the image
-	$("#img-upload-box").on('submit',(function(e) {
+	$("#form").on('submit',(function(e) {
 	  e.preventDefault();
 	  $.ajax({
-		url: "/home/create-an-experience/",
+		url: "/create-an-experience/uploadThat/",
 		type: "POST",
 		data:  new FormData(this),
 		contentType: false,
