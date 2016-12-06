@@ -21,9 +21,9 @@
         ]); ?>
     </script> -->
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMqIdlNL1E-Rfw4SWL1hwQuwZ-MCZEaJk&callback=initMap">
-    </script>
+    <script type="text/javascript" async defer 
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMqIdlNL1E-Rfw4SWL1hwQuwZ-MCZEaJk&libraries=places&callback=initMap">
+	</script>
 </head>
 
 <body>

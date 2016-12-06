@@ -44,7 +44,7 @@
                     <span>You can add up to 5 destinations</span>
                     <div class="field">
                         <label>Pick a place</label>
-                        <input type="text" placeholder="eg. The Bunk">                     
+                        <input type="text" id="name" placeholder="eg. The Bunk">                     
                     </div>
                     <div class="field">
                         <label>What's there to do?</label>
@@ -83,6 +83,8 @@
             </div>
 
         </div>
+		
+		<div id="map" style="height:50%;width:50%;"></div>
     
     </div>
 
