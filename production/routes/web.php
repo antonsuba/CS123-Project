@@ -54,6 +54,9 @@ Route::post('/bookmark/add', 'BookmarkController@saveBookmark');
 Route::post('/create-an-experience/uploadThat', 'ImageController@uploadImage');
 Route::post('/create-an-experience/saveLocation/{locationData}', 'LocationController@saveLocation');
 
+Route::post('/suggest/recommend/{suggestionID}/{score}', 'RecommendationEngine@updateSuggestionRating');
+Route::post('/suggest/recommend/{suggestionID}/{increment}', 'RecommendationEngine@updateSuggestionPopularity');
+
 /*
 |--------------------------------------------------------------------------
 | Seeder Routes
