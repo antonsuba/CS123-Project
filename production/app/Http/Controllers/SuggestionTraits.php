@@ -25,7 +25,10 @@ trait SuggestionTraits{
     public function getActivities($suggestionID){
         $suggestion = Suggestion::find($suggestionID);
         $activities = $suggestion->activities()
-                        ->join('places', 'activities.place_id', '=', 'places.id')
+                        //->join('places', 'activities.place_id', '=', 'places.id')
+                        ->join('activity_place', 'activities.id', '=', 'activity_place.activity_id')
+                        ->join('places', 'activity_place.place_id', '=', 'places.id')
+                        //->get(['activities.suggestion_id', 'places.name', 'places.img_src', 'activities.description']);
                         ->get(['activities.suggestion_id', 'places.name', 'places.img_src', 'activities.description']);
 
         return $activities;
@@ -38,7 +41,7 @@ trait SuggestionTraits{
         $i = 0;
         $places = array();
         foreach ($activities as $activity) {
-            $place = $activity->place()->first();
+            $place = $activity->places()->first();
             $places[$i] = $place;
             $i++;
         }

@@ -36,10 +36,14 @@ class SuggestionController extends Controller
 
         $newSuggestion->name = $title;
         $newSuggestion->description = $description;
+        $newSuggestion->image_id = $imageID;
+        $newSuggestion->rating = 0;
+        $newSuggestion->rate_count = 0;
+        $newSuggestion->popularity = 0;
+        $newSuggestion->weight = 1;
 
         $suggestionLocationID = Location::where('name', $locationName)->first()->id;
         $newSuggestion->location_id = $suggestionLocationID;
-        $newSuggestion->image_id = $imageID;
         $newSuggestion->save();
 
         foreach($activities as $activity){

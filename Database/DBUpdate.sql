@@ -61,6 +61,15 @@ updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );
 
+DROP TABLE IF EXISTS images;
+CREATE TABLE images(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name varchar(255),
+image varchar(255),
+updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
+created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
+);
+
 DROP TABLE IF EXISTS suggestions;
 CREATE TABLE suggestions(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -74,6 +83,7 @@ description varchar(255),
 popularity int,
 weight decimal(7,3),
 img_src varchar(255),
+rate_count varchar(255),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );
@@ -97,9 +107,18 @@ CREATE TABLE activities(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 suggestion_id int,
 FOREIGN KEY(suggestion_id) REFERENCES suggestions(id),
+description varchar(255),
+updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
+created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
+);
+
+DROP TABLE IF EXISTS activity_place;
+CREATE TABLE activity_place(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+activity_id int,
+FOREIGN KEY(activity_id) REFERENCES activities(id),
 place_id int,
 FOREIGN KEY(place_id) REFERENCES places(id),
-description varchar(255),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );
@@ -142,15 +161,6 @@ user_id int,
 FOREIGN KEY(user_id) REFERENCES users(id),
 category_id int,
 FOREIGN KEY(category_id) REFERENCES categories(id),
-updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
-created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
-);
-
-DROP TABLE IF EXISTS images;
-CREATE TABLE images(
-id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-name varchar(255),
-image varchar(255),
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );

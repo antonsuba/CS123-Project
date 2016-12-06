@@ -10,7 +10,7 @@ class Place extends Model
         return $this->belongsTo('App\Location');
     }
     public function activities(){
-        return  $this->hasMany('App\Activity');
+        return $this->belongsToMany('App\Activity')->WithTimestamps();
     }
 
     public function image(){

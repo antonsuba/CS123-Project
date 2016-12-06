@@ -26,6 +26,7 @@ class Seeder extends Controller
         $this->populateAvailPrefs(); 
         $this->populatePlaces(); 
         $this->populateActivities(); 
+        //$this->populateActivityPlace();
     }
 
     public function populateCategories(){
@@ -215,19 +216,37 @@ class Seeder extends Controller
 
     public function populateActivities(){
         $activities = array(
-            ['suggestion_id' => 1, 'place_id' => 1, 'description' => 'Enjoy a glass of beer with some indie music and a great view of the city'],
-            ['suggestion_id' => 1, 'place_id' => 2, 'description' => 'Get wasted with overpriced cocktails']
+            ['suggestion_id' => 1, 'description' => 'Enjoy a glass of beer with some indie music and a great view of the city'],
+            ['suggestion_id' => 1, 'description' => 'Get wasted with overpriced cocktails']
         );
 
         foreach($activities as $activity){
             $model = new Activity;
             $model->suggestion_id = $activity['suggestion_id'];
-            $model->place_id = $activity['place_id'];
+            //$model->place_id = $activity['place_id'];
             $model->description = $activity['description'];
 
             $model->save();
         }
 
         echo 'Activities population successfull';
+    }
+
+    public function populateActivityPlace(){
+        $activityPlaces = array(
+            ['activity_id' => 1, 'place_id' => 1], ['activity_id' => 1, 'place_id' => 2]
+        );
+
+        foreach($activityPlaces as $activityPlace){
+            $model = Activity::find($activityPlace['activity_id']);
+            $model->places()->attach($activityPlace['place_id']);
+            $model2 = Place::find($activityPlace['place_id']);
+            $model2->activities()->attach($activityPlace['activity_id']);
+
+            //$model->save();
+            //$model2->save();
+        }
+
+        echo 'Activity_Place population successfull';
     }
 }
