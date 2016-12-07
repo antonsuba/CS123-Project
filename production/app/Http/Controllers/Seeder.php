@@ -240,8 +240,8 @@ class Seeder extends Controller
         foreach($activityPlaces as $activityPlace){
             $model = Activity::find($activityPlace['activity_id']);
             $model->places()->attach($activityPlace['place_id']);
-            $model2 = Place::find($activityPlace['place_id']);
-            $model2->activities()->attach($activityPlace['activity_id']);
+            //$model2 = Place::find($activityPlace['place_id']);
+            //$model2->activities()->attach($activityPlace['activity_id']);
 
             //$model->save();
             //$model2->save();
