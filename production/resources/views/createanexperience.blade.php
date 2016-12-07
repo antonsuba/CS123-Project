@@ -13,7 +13,8 @@
 
             <div class="nine wide column">
 
-                <form class="ui form">
+                <form class="ui form" method = "POST" action="{{url('/suggest/create')}}">
+				{{ csrf_field() }}
                 <div id="setup" class="ui big form ">
                     <div class="field">
                         <label>Give it a name</label>
@@ -60,12 +61,12 @@
 
                     
 
-                    {{-- <div class="ui section divider"></div>
+                     <div class="ui section divider"></div>
 
-                    <a id="back-button-itinerary" class="head-font"><i class="left floated arrow left icon"></i>Back</a>
+                    <!--<a id="back-button-itinerary" class="head-font"><i class="left floated arrow left icon"></i>Back</a>-->
 					
 					<!-- Changed id from next-button-itinerary to done-button-itinerary since ids are supposed to be unique after all (use class if they are the same in some way)-->
-                    <button id="done-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Done!</button> --}}
+                    <button id="done-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Done!</button>
                 </div>
                 
                 {{-- <br><br> 
@@ -78,6 +79,7 @@
                         <h3><i>Findeers Keepers</i></h3>
                         <p>Obscure warehouse lounge with an intimate long bar, curated music, crafted cocktails, draft and bottled beers</p>
                     </div>
+
                 </div> --}}
 
                 
@@ -174,7 +176,6 @@ $(document).ready(function(){
 		url: "/create-an-experience/saveLocation/{locationData}",
 		type: "POST",
 		data:  locationData,
-		dataType: application/json,
 		success: function()
 		{
 			

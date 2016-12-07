@@ -11,7 +11,7 @@ use App\Suggestion;
 class ImageController extends Controller
 {
     public function uploadImage(){
-        if(isset($_POST['image'])){
+        if(isset($_FILES['image'])){
             //$imageName = $_FILES['image']['name'];
             $imageSize = $_FILES['image']['size'];
             $imageTmp = $_FILES['image']['tmp_name'];
@@ -46,7 +46,6 @@ class ImageController extends Controller
 
                 $imageName = $place->name.".".$imgExt;
             }*/
-            return response()->json("Image uploaded");
 
             if(empty($errors)){
                 move_uploaded_file($imageTmp, $destinationPath.$imageName);
@@ -56,9 +55,7 @@ class ImageController extends Controller
                 return response()->json($errors);
                 print $errors;
             }
-        } else{
-            return response()->json("fuck u");
-        }
+        } 
     }
     
 }

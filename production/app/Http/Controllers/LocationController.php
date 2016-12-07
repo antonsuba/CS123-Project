@@ -10,9 +10,10 @@ class LocationController extends Controller
 {
     //
 	public function saveLocation($locationData){
-        $name = $locationData['name'];
-		$lat = $locationData['lat'];
-		$lng = $locationData['lng'];
+		$data = explode(",", $locationData); 
+        $name = $data[0];
+		$lat = $data[1];
+		$lng = $data[2];
 
         $location = new Location;
 		$location->name = $name;
