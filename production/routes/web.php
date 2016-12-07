@@ -38,6 +38,7 @@ Route::get('auth/facebook/callback/{provider?}', 'Auth\AuthController@handleProv
 Route::get('/home', 'HomeController@index');
 Route::get('/home/suggest/{categoryID}', 'HomeController@suggest');
 Route::get('/home/detail/{suggestionID}', 'HomeController@detail');
+Route::get('/home/friends', 'HomeController@getFriends');
 
 Route::get('/create-an-experience', 'ExperienceController@index');
 Route::get('/bookmark', 'BookmarkController@index');
