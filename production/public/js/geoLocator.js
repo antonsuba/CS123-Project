@@ -23,14 +23,14 @@ function initMap() {
 	
 	if (navigator.geolocation) {
 	  navigator.geolocation.getCurrentPosition(function(position) {
-		var pos = {
+		pos = {
 		  lat: position.coords.latitude,
 		  lng: position.coords.longitude
 		};
 		
 		
 		//Creation of the autocomplete input bar
-		var userDetails = getUserAddress(pos);
+		var userDetails = getUserAddress();
 		
 		var nameInput = document.getElementById('name');
 		
@@ -80,7 +80,7 @@ function initMap() {
 				lng: parseFloat(loc[1])
 			};
 			
-			var userDetails = getUserAddress(pos);
+			var userDetails = getUserAddress();
 			
 			var nameInput = document.getElementById('name');
 			
@@ -162,7 +162,7 @@ function getUserPos(pos){ //Gives Position of User to AJAX
 	
 }
 
-function getUserAddress(pos){ //Gives City of User to AJAX or other javascript functions
+function getUserAddress(){ //Gives City of User to AJAX or other javascript functions
 	var req = new XMLHttpRequest();
 	req.open("GET","https://maps.googleapis.com/maps/api/geocode/json?latlng=" + pos.lat + "," + pos.lng + "&key=AIzaSyCMqIdlNL1E-Rfw4SWL1hwQuwZ-MCZEaJk",false);
 	req.send();
