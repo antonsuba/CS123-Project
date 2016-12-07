@@ -66,6 +66,10 @@ class RecommendationEngine extends Controller
 		$jsonData = json_encode($requestArray);
 		echo $jsonData;
 		
+		$suggestion = Suggestion::find($suggestionID);
+		
+		return response()->json("Rated");
+		
 		/*
         $suggestion = Suggestion::find($suggestionID);
 
