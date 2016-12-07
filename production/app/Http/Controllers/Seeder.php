@@ -24,11 +24,11 @@ class Seeder extends Controller
 
     public function populateCategories(){
         $categories = array(
-            ['name' => 'Fine Dining'],
-            ['name' => 'Casual Dining'],
-            ['name' => 'Late Night'],
-            ['name' => 'Sports'],
-            ['name' => 'Arts']
+            ['name' => 'Night Life'],
+            ['name' => 'Arts and Culture'],
+            ['name' => 'Outdoors'],
+            ['name' => 'Food'],
+            ['name' => 'Sports']
         );
 
         foreach($categories as $category){
@@ -47,15 +47,21 @@ class Seeder extends Controller
 
     public function populatePreferences(){
         $preferences = array(
-            ['name' => 'Degustation', 'category_id' => '1'],
-            ['name' => 'Italian', 'category_id' => '2'],
-            ['name' => 'Mexican', 'category_id' => '2'],
-            ['name' => 'Rooftop Bar', 'category_id' => '3'],
-            ['name' => 'Speakeasy', 'category_id' => '3'],
-            ['name' => 'Football', 'category_id' => '4'],
-            ['name' => 'Archery', 'category_id' => '4'],
-            ['name' => 'Painting', 'category_id' => '5'],
-            ['name' => 'Filming', 'category_id' => '5']
+            ['name' => 'Clubs', 'category_id' => '1'],
+            ['name' => 'Drinking', 'category_id' => '1'],
+            ['name' => 'Bar Hopping', 'category_id' => '1'],
+            ['name' => 'Educational', 'category_id' => '2'],
+            ['name' => 'Museums', 'category_id' => '2'],
+            ['name' => 'Concerts', 'category_id' => '2'],
+            ['name' => 'Rock Climbing', 'category_id' => '3'],
+            ['name' => 'Hiking', 'category_id' => '3'],
+            ['name' => 'Beaches', 'category_id' => '3'],
+            ['name' => 'Solo Dining', 'category_id' => '4'],
+            ['name' => 'Casual Dining', 'category_id' => '4'],
+            ['name' => 'Fine Dining', 'category_id' => '4'],
+            ['name' => 'Basketball', 'category_id' => '5'],
+            ['name' => 'Swimming', 'category_id' => '5'],
+            ['name' => 'Football', 'category_id' => '5']
         );
 
         foreach($preferences as $preference){
