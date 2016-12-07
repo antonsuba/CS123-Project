@@ -153,3 +153,7 @@ label{
 	-webkit-background-clip: text !important;
   	
 }
+
+#map{
+	display: none;
+}
