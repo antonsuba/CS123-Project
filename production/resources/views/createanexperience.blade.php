@@ -169,22 +169,20 @@ $(document).ready(function(){
 	 }));
 	 
 	 //To add Location when destination added
-	 $("#add-button-itinerary").click('submit',(function(e) {
-	  e.preventDefault();
-	  var locationData = getLocationData();
-	  $.ajax({
-		url: "/create-an-experience/saveLocation/",
-		type: "POST",
-		data:  locationData,
-		dataType: "json"
-		success: function()
-		{
-			
-		},
-		error: function(e) {
-		}          
+	$("#add-button-itinerary").click('submit',(function(e) {
+		e.preventDefault();
+		var locationData = getLocationData();
+		var sendthis = {"name": locationData[0].split(",")[0], "lat": locationData[1], "lng": locationData[2]}
+		$.ajax({
+			url: "/create-an-experience/saveLocation/",
+			type: "POST",
+			data:  sendthis,
+			dataType: "json",
+			success: function(msg){
+			console.log(msg);
+			}          
 		});
-	 }));
+	}));
 
 	// Function to preview image after validation
 	$(function() {
