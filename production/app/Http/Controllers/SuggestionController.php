@@ -9,6 +9,7 @@ use App\Place;
 use App\Location;
 use App\Activities;
 use App\Http\Requests;
+use App\Preference;
 use App\Http\Controllers\ActivityTraits;
 
 class SuggestionController extends Controller
@@ -31,26 +32,35 @@ class SuggestionController extends Controller
         
     }
 
-    public function createSuggestion(/*$title, $description, $locationName, $activities, $imageID*/Request $request){
+    public function createSuggestion(Request $request){
         $inputs = $request->input();
         print_r($inputs);
-        /*$newSuggestion = new Suggestion;
+        $newSuggestion = new Suggestion;
 
-        $newSuggestion->name = $title;
-        $newSuggestion->description = $description;
-        $newSuggestion->image_id = $imageID;
+        $newSuggestion->name = $inputs['name'];
+        $newSuggestion->description = $inputs['suggestion-description'];
+        //$newSuggestion->image_id = $imageID;
         $newSuggestion->rating = 0;
         $newSuggestion->rate_count = 0;
         $newSuggestion->popularity = 0;
         $newSuggestion->weight = 1;
 
-        $suggestionLocationID = Location::where('name', $locationName)->first()->id;
-        $newSuggestion->location_id = $suggestionLocationID;
+        $suggestionLocation = Location::find($inputs['location']);
+        $locationID = $suggestionLocation['id'];
+        $newSuggestion->location_id = $locationID;
+        
         $newSuggestion->save();
 
-        foreach($activities as $activity){
+        $suggestionPreference = Preference::find($inputs['preference']);
+        $newSuggestion->preferences()->attach($suggestionPreference['id']);
+
+        $suggestionID = $newSuggestion->id;
+        $newActivity = $this->createActivity($suggestionID, $inputs['activity-description'], $inputs['place-name']);
+        /*foreach($activities as $activity){
             $suggestionID = $newSuggestion->id;
             $newActivity = $this->createActivity($suggestionID, $activity[0], $activity[1], $activity[2]);
         }*/
+
+        //return view('home');
     }
 }

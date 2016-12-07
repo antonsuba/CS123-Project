@@ -200,7 +200,7 @@ function getLocationData(){ //made it JSON
 	var latitude = place.geometry.location.lat();
 	var longitude = place.geometry.location.lng();
 	var locationName = document.getElementById('name').value;
-	var locationData = locationName+","+latitude+","+longitude;
+	var locationData = "{ name: "+locationName+", lat: "+latitude+", lng: "+longitude+ "}";
 	return locationData;
 }
 

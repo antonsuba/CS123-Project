@@ -13,7 +13,7 @@
 			{{-- @php dd($activities); @endphp --}}
 				<h1>{{ $detail->name }}</h1>
 				<p class="head-font">{{ $detail->city }} </p>
-				<div class="ui rating rating-star" data-rating="{{ $detail->rating }}" data-max-rating="5"></div>
+				<div class="ui quality rating rating-star" data-rating="{{ $detail->rating }}" data-max-rating="5"></div>
 				<button id="invite-button" class="ui small button button-shaded right floated">Invite Friends</button>
 				<button id="bookmark-button" class="ui small basic grey button right floated">Bookmark</button>
 
@@ -72,6 +72,21 @@
 
 $(document).ready(function(){
 	$('.ui.rating').rating();
+	
+	$('.ui.rating').click(function(){
+		var suggestionID = {{$activities[0]->suggestion_id}};
+		var score = $('.ui.rating').rating("get rating");
+		
+		$.ajax({
+			dataType: 'json',
+			type: "POST",
+			url: "/bookmark/rate/",
+			data: {"suggestionID": suggestionID,"score": score},
+			success: function(msg){
+				console.log(msg);
+			}
+		});
+	});
 
 	$('.ui.modal').modal('attach events', '#invite-button', 'show');
 

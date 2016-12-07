@@ -37,6 +37,19 @@
                         <label>Describe the experience</label>
                         <textarea name="suggestion-description" rows="3" placeholder="eg. Good memories and bad decisions"></textarea>
                     </div>
+					<div class="field">
+                        <label>What preference do you think this belongs to?</label>
+                        <div class="ui selection dropdown">
+                            <input type="hidden" name="preference">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Drinking</div>
+                            <div class="menu">
+                                @foreach($preferences as $preference)
+                                    <div class="item" data-value="{{ $preference->id }}">{{ $preference->name }}</div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
 					<div>
 						<input id="file" type="file" accept="image/*" name="image" /></input>
 					</div>
@@ -48,11 +61,11 @@
                     <span>You can add up to 5 destinations</span>
                     <div class="field">
                         <label>Pick a place</label>
-                        <input type="text" id="name" placeholder="eg. The Bunk">                     
+                        <input type="text" name="place-name" id="name" placeholder="eg. The Bunk">                     
                     </div>
                     <div class="field">
                         <label>What's there to do?</label>
-                        <textarea rows="3" placeholder="eg. Enjoy a cold beer with a great view of the city"></textarea>
+                        <textarea rows="3" name="activity-description" placeholder="eg. Enjoy a cold beer with a great view of the city"></textarea>
                     </div>
                      <a id="back-button-itinerary" class="head-font"><i class="left floated arrow left icon"></i>Back</a>
 					 
@@ -173,9 +186,10 @@ $(document).ready(function(){
 	  e.preventDefault();
 	  var locationData = getLocationData();
 	  $.ajax({
-		url: "/create-an-experience/saveLocation/{locationData}",
+		url: "/create-an-experience/saveLocation/",
 		type: "POST",
 		data:  locationData,
+		dataType: "json"
 		success: function()
 		{
 			
