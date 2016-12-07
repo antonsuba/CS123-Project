@@ -10,6 +10,7 @@ use App\Suggestion;
 use App\Preference;
 use App\Category;
 use App\AvailPref;
+use Illuminate\Support\Facades\Auth;
 
 class RecommendationEngine extends Controller
 {
@@ -80,10 +81,25 @@ class RecommendationEngine extends Controller
 
     public function updateRecencyScore($availPrefID, $increment){
         $availPref = AvailPref::find($availPrefID);
-
+        
         
 
         $availPref->save();
+    }
+
+    public function updateSuggestionWeight($suggestionID){
+        $suggestion = Suggestion::find($suggestionID);
+        $score = $suggestion->rating;
+        $popularity = $suggestion->popularity;
+
+        $suggestion->weight = $this->calculateSuggestionWeight($score, $popularity);
+    }
+
+    public function updateRealWeight($suggestionID){
+        $availPref = AvailPref::where(['suggestion_id' => $suggestionID, 'user_id' => Auth::id()])->first();
+        $suggestion = Suggestion::find($suggestionID);
+
+        
     }
     
 }

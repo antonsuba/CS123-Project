@@ -44,6 +44,7 @@ Route::get('/bookmark', 'BookmarkController@index');
 
 Route::get('/suggestbycat/{categoryID}/{quantity}/{offset}', 'RecommendationEngine@getSuggestionsByCategory');
 Route::get('/suggest/{quantity}/{offset}', 'RecommendationEngine@getSuggestions');
+Route::post('/suggest/create', 'SuggestionController@createSuggestion');
 
 /*
 |--------------------------------------------------------------------------

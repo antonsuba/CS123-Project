@@ -31,8 +31,10 @@ class SuggestionController extends Controller
         
     }
 
-    public function createSuggestion($title, $description, $locationName, $activities, $imageID){
-        $newSuggestion = new Suggestion;
+    public function createSuggestion(/*$title, $description, $locationName, $activities, $imageID*/Request $request){
+        $inputs = $request->input();
+        print_r($inputs);
+        /*$newSuggestion = new Suggestion;
 
         $newSuggestion->name = $title;
         $newSuggestion->description = $description;
@@ -49,6 +51,6 @@ class SuggestionController extends Controller
         foreach($activities as $activity){
             $suggestionID = $newSuggestion->id;
             $newActivity = $this->createActivity($suggestionID, $activity[0], $activity[1], $activity[2]);
-        }
+        }*/
     }
 }
