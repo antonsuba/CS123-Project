@@ -18,7 +18,7 @@
                 <div id="setup" class="ui big form ">
                     <div class="field">
                         <label>Give it a name</label>
-                        <input type="text" placeholder="eg. Rooftop Bar Hopping">
+                        <input name="name" type="text" placeholder="eg. Rooftop Bar Hopping">
                     </div>
                     <div class="field">
                         <label>Where is it?</label>
@@ -35,10 +35,10 @@
                     </div>
                     <div class="field">
                         <label>Describe the experience</label>
-                        <textarea rows="3" placeholder="eg. Good memories and bad decisions"></textarea>
+                        <textarea name="suggestion-description" rows="3" placeholder="eg. Good memories and bad decisions"></textarea>
                     </div>
 					<div>
-						<input><input id="file" type="file" accept="image/*" name="image" /></input>
+						<input id="file" type="file" accept="image/*" name="image" /></input>
 					</div>
                     {{-- <a href="/home" class="head-font"><i class="left floated arrow left icon"></i>Back</a> --}}
                     <button id="next-button-setup" type="button" class="ui large button button-shaded right floated">Next</button>
@@ -69,8 +69,8 @@
                     <button id="done-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Done!</button>
                 </div>
                 
-                <br><br> 
-                <!--<div class="ui grid" id="list-grid" style="display: none;">
+                {{-- <br><br> 
+                <div class="ui grid" id="list-grid" style="display: none;">
                     <div class="ui section divider"></div><br> 
                     <div class="five wide column">
                         <img class="ui small circular image" src="https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s640x640/sh0.08/e35/11925616_1047949228550818_1910383083_n.jpg">
@@ -79,9 +79,10 @@
                         <h3><i>Findeers Keepers</i></h3>
                         <p>Obscure warehouse lounge with an intimate long bar, curated music, crafted cocktails, draft and bottled beers</p>
                     </div>
-                </div>-->
 
-                </form>
+                </div> --}}
+
+                
                 
             </div>
 
@@ -90,20 +91,22 @@
 				<!--
                 <img id="img-upload-box" class="ui large image" src="https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s640x640/sh0.08/e35/11925616_1047949228550818_1910383083_n.jpg"/>
 				-->
-				<form id="form" action="/create-an-experience/uploadThat/" method="post" enctype="multipart/form-data">
-					<!-- Image taken from: happysock.eu -->
-					<div id="image_preview"><img id="previewing" src="http://happysock.eu/wp-content/themes/mt-four/assets/images/no-img.jpg"/></div>
-					<hr id="line">
-					<div id="selectImage">
-					<label>Select Your Image</label><br/>
-					<input id="file" type="file" accept="image/*" name="image" />
-					</div>
-				</form>
+				
+                <!-- Image taken from: happysock.eu -->
+                <div id="image_preview"><img id="previewing" src="http://happysock.eu/wp-content/themes/mt-four/assets/images/no-img.jpg"/></div>
+                <hr id="line">
+                <div id="selectImage">
+                <label>Select Your Image</label><br/>
+                <input id="file" type="file" accept="image/*" name="image" />
+                </div>
+				
             </div>
+
+            </form>
 
         </div>
 		
-		<div id="map" style="height:50%;width:100%;"></div>
+		<div id="map" style="height:50%;width:100%;" style="display: none;"></div>
     
     </div>
 
@@ -121,6 +124,7 @@ $(document).ready(function(){
         $("#add-itinerary").show();
         $('#list-grid').show();
         $('#img-upload-box').hide();
+        $('#map').show();
         $("#prompt-header").html("Let's add an itinerary");
     });
 
@@ -129,6 +133,7 @@ $(document).ready(function(){
         $("#setup").show();
         $('#list-grid').hide();
         $('#img-upload-box').show();
+        $('#map').hide();
         $("#prompt-header").html("Create an experience for others to try out");
     });
 	
