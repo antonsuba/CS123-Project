@@ -83,7 +83,7 @@ description varchar(255),
 popularity int,
 weight decimal(7,3),
 img_src varchar(255),
-rate_count varchar(255),
+rate_count int,
 updated_at TIMESTAMP DEFAULT '1970-12-12 12:12:12',
 created_at TIMESTAMP DEFAULT '1970-12-12 12:12:12'
 );

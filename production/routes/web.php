@@ -57,7 +57,7 @@ Route::post('/bookmark/rate/', 'RecommendationEngine@updateSuggestionRating');
 Route::post('/bookmark/increment/', 'RecommendationEngine@updateSuggestionPopularity');
 
 Route::post('/create-an-experience/uploadThat', 'ImageController@uploadImage');
-Route::post('/create-an-experience/saveLocation/{locationData}', 'LocationController@saveLocation');
+Route::post('/create-an-experience/saveLocation/', 'LocationController@saveLocation');
 
 /*
 |--------------------------------------------------------------------------
