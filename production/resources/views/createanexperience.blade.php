@@ -186,9 +186,10 @@ $(document).ready(function(){
 	  e.preventDefault();
 	  var locationData = getLocationData();
 	  $.ajax({
-		url: "/create-an-experience/saveLocation/{locationData}",
+		url: "/create-an-experience/saveLocation/",
 		type: "POST",
 		data:  locationData,
+		dataType: "json"
 		success: function()
 		{
 			

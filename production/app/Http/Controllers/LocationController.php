@@ -9,11 +9,13 @@ use App\Http\Requests;
 class LocationController extends Controller
 {
     //
-	public function saveLocation($locationData){
-		$data = explode(",", $locationData); 
-        $name = $data[0];
-		$lat = $data[1];
-		$lng = $data[2];
+	public function saveLocation(Request $request){
+		$name= $request->name;
+		$lat = $request->lat;
+		$lng = $request->lng;
+		$requestArray = array($name,$lat,$lng);
+		$jsonData = json_encode($requestArray);
+		echo $jsonData;
 
         $location = new Location;
 		$location->name = $name;
