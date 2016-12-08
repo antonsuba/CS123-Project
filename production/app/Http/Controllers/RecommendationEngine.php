@@ -10,6 +10,7 @@ use App\Suggestion;
 use App\Preference;
 use App\Category;
 use App\AvailPref;
+use Illuminate\Support\Facades\Auth;
 
 class RecommendationEngine extends Controller
 {
@@ -26,7 +27,7 @@ class RecommendationEngine extends Controller
                         ->orderBy('real_weight')
                         ->limit($quantity)
                         ->offset($offset)                     
-                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'suggestions.img_src', 'avail_prefs.recency_score', 
+                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location_id', 'suggestions.weight', 'suggestions.img_src', 'avail_prefs.recency_score', 
                                 DB::raw('suggestions.weight * avail_prefs.recency_score as real_weight')]);
 
         return $suggestions;
@@ -41,15 +42,15 @@ class RecommendationEngine extends Controller
                         ->orderBy('real_weight')
                         ->limit($quantity)
                         ->offset($offset)
-                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location', 'suggestions.weight', 'suggestions.img_src', 'avail_prefs.recency_score', 
+                        ->get(['suggestions.id', 'suggestions.name', 'suggestions.rating', 'suggestions.location_id', 'suggestions.weight', 'suggestions.img_src', 'avail_prefs.recency_score', 
                                 DB::raw('suggestions.weight * avail_prefs.recency_score as real_weight')]);
 
         return $suggestions;
     }
 
     public function calculateSuggestionWeight($score, $popularity){
-        $scoreMultiplier = '';
-        $popularityMultiplier = '';
+        $scoreMultiplier = 1;
+        $popularityMultiplier = 1;
 
         return 1 / ( ($score * $scoreMultiplier) + ($popularity * $popularityMultiplier) );
     }
@@ -58,13 +59,22 @@ class RecommendationEngine extends Controller
         return $suggestionWeight * $recencyScore;
     }
 
-    public function updateSuggestionRating($suggestionID, $score){
+    public function updateSuggestionRating(Request $request){
+		
+		$inputs = $request->input();
+        $suggestionID = $inputs['suggestionID'];
+		$score = $inputs['score'];
+
         $suggestion = Suggestion::find($suggestionID);
-
+        $rateCount = $suggestion->rate_count;
         $previousRating = $suggestion->rating;
-        $newRating;
-
-        $suggestion->save();
+        $newRating = ($score + $previousRating)/($rateCount + 1);
+        $suggestion->rate_count = $rateCount + 1;
+		
+		$suggestion->save();
+		
+        return response()->json("Rated");
+		
     }
 
     public function updateSuggestionPopularity($suggestionID, $increment){
@@ -78,10 +88,25 @@ class RecommendationEngine extends Controller
 
     public function updateRecencyScore($availPrefID, $increment){
         $availPref = AvailPref::find($availPrefID);
-
+        
         
 
         $availPref->save();
+    }
+
+    public function updateSuggestionWeight($suggestionID){
+        $suggestion = Suggestion::find($suggestionID);
+        $score = $suggestion->rating;
+        $popularity = $suggestion->popularity;
+
+        $suggestion->weight = $this->calculateSuggestionWeight($score, $popularity);
+    }
+
+    public function updateRealWeight($suggestionID){
+        $availPref = AvailPref::where(['suggestion_id' => $suggestionID, 'user_id' => Auth::id()])->first();
+        $suggestion = Suggestion::find($suggestionID);
+
+        
     }
     
 }

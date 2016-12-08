@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'facebook_id', 'avatar'
     ];
 
     /**
@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+	
+	public function comments(){
+		return $this->hasMany('App\Comment');
+	}
+
+    public function preferences(){
+        return $this->belongsToMany('App\Preference');
+    }
+
+    public function bookmarks(){
+        return $this->hasMany('App\Bookmark');
+    }
 }

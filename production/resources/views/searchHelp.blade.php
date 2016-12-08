@@ -9,7 +9,7 @@ $requestDate = date('Ymd');
 
 $baseURL = 'https://api.foursquare.com/v2/';
 $endpoint = 'venues/search?'; #note: if we want top place, we use explore instead of search
-$params = 'near=Mandaluyong+City'; #Note: we can add more search options like query by adding "&" after, ex. near=Quezon+City&query=Coffee+shop
+$params = 'near=Mandaluyong+City&query=coffee_shop'; #Note: we can add more search options like query by adding "&" after, ex. near=Quezon+City&query=Coffee+shop
 $auth = "&client_id=$clientID&client_secret=$clientSecret&v=$requestDate";
 
 $url = $baseURL.$endpoint.$params.$auth;

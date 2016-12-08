@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {   

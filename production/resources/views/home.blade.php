@@ -2,25 +2,17 @@
 
 @section('navbar-content')
 <div class="ui one column grid item">
-    <div class="ui floating labeled icon dropdown button">
-        <i class="filter icon"></i>
+    <div class="ui floating dropdown">
         <span class="text">Categories</span>
-        
-        <div class="menu">
-            <div class="header">
-                Search Category
-            </div>
-            <div class="ui left icon input">
-                <i class="search icon"></i>
-                <input type="text" name="search" placeholder="Search...">
-            </div>
+        <i class="caret down icon"></i>
 
+        <div class="menu">
             <div class="header">
                 <i class="tags icon"></i>
                 Filter by Category
             </div>
             @foreach($categories as $category)
-            <div class="item">{{ $category->name }}</div>
+            <div class="item"><a class="head-font" href="/home/suggest/{{ $category->id }}">{{ $category->name }}</a></div>
             @endforeach
         </div>
     </div>
@@ -31,9 +23,9 @@
 <div class="ui grid centered">
 
     <div class="twelve wide column content-container">
-    <div class="ui four stackable cards">
+    <div id="cards" class="ui four stackable cards">
         @foreach($suggestions as $suggestion)
-        <div class="ui card">
+        <div class="ui raised link card" onclick="window.location='/home/detail/{{ $suggestion->id }}'">
             <div class="image">
                 <img src="{{ $suggestion->img_src }}">
             </div>
@@ -45,7 +37,7 @@
                     <span class="card-content">Rating: {{ $suggestion->rating }}</span>
                 </div>
                 <div class="description">
-                    <span class="card-content"> {{ $suggestion->location }} </span>
+                    <span class="card-content">{{ $suggestion->location }} </span>
                 </div>
             </div>
         </div>
@@ -61,17 +53,8 @@
 
 <script type="text/javascript">
     $('.ui.dropdown').dropdown();
-
-    function getSuggestionsByCategory($id){
-        $.ajax({
-            type: 'POST',
-            url: '/suggest',
-            data: {categoryID: $id},
-            success: function($suggestions){
-                
-            }
-        });
-    }
+    
+    
 </script>
 
 @endsection

@@ -3,30 +3,44 @@
 
 /********** Boiler Plate CSS ************/
 body {
-    background-color: #f3f3f3;
+    background-color: #FFFFFF;
+	color: #716b6b;
 	font-family: 'Hind', sans-serif;
-	font-size: 1.1em;
+	font-size: 1.2em;
 }
 
 .head-font{
     font-family: 'Montserrat', sans-serif;
-    color: #716b6b;
+    color: #716b6b !important; 
 }
 
-.color-yellow{
-    color: #e8c154;
+h1{
+	color: #484848;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.5em;
 }
 
-.color-red{
-    color: #ec4655;
+h2{
+	color: #484848;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.8em;
 }
 
-.color-blue{
-    color: #31c6ef;
+h3{
+	color: #484848;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.2em;
 }
 
-.color-green{
-    color: #4dbab0;
+a:hover{
+	color: #484848;
+}
+
+label{
+	font-family: 'Montserrat', sans-serif;
+    color: #716b6b !important;
+	padding-top: 14px;
+	padding-bottom: 14px; 
 }
 
 /********** Mutli-Page ****************/
@@ -40,13 +54,10 @@ body {
 	min-width: 100%;
 }
 
-/* Since search and detail pages have just a tiny bar on top with the title unlike the other pages where WILD CARD is big and centered */
-.title-mini-bar{
-	background-color: white;
-	position: relative;
-}
-
 .title-navbar{
+	background: -webkit-linear-gradient(90deg, #FD6F46 10%, #FB9832 90%);
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
 	font-size: 2.5em;
 }
 
@@ -65,7 +76,20 @@ body {
 	font-family: 'Hind', sans-serif;
 }
 
+.button-shaded{
+	color: #FFFFFF !important;
+	background: -webkit-linear-gradient(90deg, #FD6F46 10%, #FB9832 90%) !important; /* Chrome 10+, Saf5.1+ */ 
+	background: -moz-linear-gradient(90deg, #FD6F46 10%, #FB9832 90%) !important; /* FF3.6+ */ 
+	background: linear-gradient(90deg, #FD6F46 10%, #FB9832 90%) !important; /* W3C */ 
+}
+
 /********** Landing Page ****************/
+
+.landing-body{
+	background: -webkit-linear-gradient(90deg, #FD6F46 10%, #FB9832 90%); /* Chrome 10+, Saf5.1+ */ 
+	background: -moz-linear-gradient(90deg, #FD6F46 10%, #FB9832 90%); /* FF3.6+ */ 
+	background: linear-gradient(90deg, #FD6F46 10%, #FB9832 90%); /* W3C */ 
+}
 
 .landing-master-div{
 	top: 0;
@@ -75,8 +99,9 @@ body {
 }
 
 .title-logo{
+	color: white;
     text-align: center;
-    font-size: 5.5em;
+    font-size: 6em;
 }
 
 /********** Register Page ****************/
@@ -113,6 +138,7 @@ body {
 
 /************* Home ********************/
 .card-header{
+	color: #484848;
 	font-family: 'Montserrat', sans-serif;
 }
 
@@ -121,30 +147,13 @@ body {
 }
 
 /********** Detail Page ****************/
-.detail-master-div{
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: aquamarine;
+
+.rating-star{
+	background: -webkit-linear-gradient(90deg, #FD6F46 10%, #FB9832 90%) !important;
+	-webkit-background-clip: text !important;
+  	
 }
 
-.detail-content{
-	position: relative;
-	top: 10%;
+#map{
+	display: none;
 }
-
-.detail-right{
-	background-color:white;
-	width: 30%;
-	border-radius: 1rem;
-	box-shadow: 0 0 3pt 5pt grey;
-}
-
-/*
-Delete Potentials List:
-(Landing Page)
-facebook-button
-div-bottom-landing
-login-button
-*/

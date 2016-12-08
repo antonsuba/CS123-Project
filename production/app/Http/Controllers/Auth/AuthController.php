@@ -30,10 +30,13 @@ class AuthController extends Controller
             return redirect(auth/facebook);
         }
 
-        $authenticatedUser = $this->findOrCreateUser($user);
+        $authenticatedUser = $this->getOrCreateUser($user);
+        \Auth::login($authenticatedUser, true);
+
+        return redirect()->to('/home');
     }
 
-    public function findOrCreateUser($user){
+    public function getOrCreateUser($user){
         $authenticatedUser = User::where('facebook_id', '=', $user->id)->first();
 
         if($authenticatedUser){
@@ -46,6 +49,9 @@ class AuthController extends Controller
             'facebook_id' => $user->id,
             'avatar' => $user->avatar
         ]);
+
+        $authenticatedUser->save();
+
         return $authenticatedUser;
     }
 }

@@ -20,18 +20,6 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('search',function(){
-	return view('search');
-});
-
-Route::get('detail',function(){
-	return view('detail');
-});
-
-Route::get('sh',function(){
-	return view('searchHelp');
-});
-
 /*
 |--------------------------------------------------------------------------
 | Auth Routes
@@ -48,13 +36,33 @@ Route::get('auth/facebook/callback/{provider?}', 'Auth\AuthController@handleProv
 |--------------------------------------------------------------------------
 */
 Route::get('/home', 'HomeController@index');
+Route::get('/home/suggest/{categoryID}', 'HomeController@suggest');
+Route::get('/home/detail/{suggestionID}', 'HomeController@detail');
+Route::get('/home/friends', 'HomeController@getFriends');
+
+Route::get('/create-an-experience', 'ExperienceController@index');
+Route::get('/bookmark', 'BookmarkController@index');
 
 Route::get('/suggestbycat/{categoryID}/{quantity}/{offset}', 'RecommendationEngine@getSuggestionsByCategory');
 Route::get('/suggest/{quantity}/{offset}', 'RecommendationEngine@getSuggestions');
+Route::post('/suggest/create', 'SuggestionController@createSuggestion');
 
 /*
 |--------------------------------------------------------------------------
-|Seeder Routes
+| AJAX Routes
+|--------------------------------------------------------------------------
+*/
+Route::post('/bookmark/add', 'BookmarkController@saveBookmark');
+
+Route::post('/bookmark/rate/', 'RecommendationEngine@updateSuggestionRating');
+Route::post('/bookmark/increment/', 'RecommendationEngine@updateSuggestionPopularity');
+
+Route::post('/create-an-experience/uploadThat', 'ImageController@uploadImage');
+Route::post('/create-an-experience/saveLocation/', 'LocationController@saveLocation');
+
+/*
+|--------------------------------------------------------------------------
+| Seeder Routes
 |--------------------------------------------------------------------------
 */
 Route::get('/seeder/seedall', 'Seeder@seedAll');
