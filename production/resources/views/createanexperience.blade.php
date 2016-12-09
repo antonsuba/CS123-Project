@@ -189,7 +189,7 @@ $(document).ready(function(){
 		url: "/create-an-experience/saveLocation/",
 		type: "POST",
 		data:  locationData,
-		dataType: "json"
+		dataType: "json",
 		success: function()
 		{
 			
