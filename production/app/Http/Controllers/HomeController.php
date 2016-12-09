@@ -96,6 +96,8 @@ class HomeController extends Controller
 
         //dd($jsonResponse['friends']['data']);
 
-        return $jsonResponse['friends']['data'];
+        return 1;
+
+        //return $jsonResponse['friends']['data'];
     }
 }
