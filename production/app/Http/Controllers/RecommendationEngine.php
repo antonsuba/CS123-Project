@@ -60,26 +60,20 @@ class RecommendationEngine extends Controller
     }
 
     public function updateSuggestionRating(Request $request){
-		$requestSuggestionID = $request->suggestionID;
-		$requestScore = $request->score;
-		$requestArray = array($requestSuggestionID,$requestScore);
-		$jsonData = json_encode($requestArray);
-		echo $jsonData;
 		
-		$suggestion = Suggestion::find($suggestionID);
-		
-		return response()->json("Rated");
-		
-		/*
-        $suggestion = Suggestion::find($suggestionID);
+		$inputs = $request->input();
+        $suggestionID = $inputs['suggestionID'];
+		$score = $inputs['score'];
 
+        $suggestion = Suggestion::find($suggestionID);
         $rateCount = $suggestion->rate_count;
         $previousRating = $suggestion->rating;
         $newRating = ($score + $previousRating)/($rateCount + 1);
         $suggestion->rate_count = $rateCount + 1;
 		
-        $suggestion->save();
-		*/
+		$suggestion->save();
+		
+        return response()->json("Rated");
 		
     }
 

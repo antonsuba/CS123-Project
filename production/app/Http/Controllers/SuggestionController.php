@@ -34,7 +34,7 @@ class SuggestionController extends Controller
 
     public function createSuggestion(Request $request){
         $inputs = $request->input();
-        print_r($inputs);
+        //print_r($inputs);
         $newSuggestion = new Suggestion;
 
         $newSuggestion->name = $inputs['name'];
@@ -61,6 +61,6 @@ class SuggestionController extends Controller
             $newActivity = $this->createActivity($suggestionID, $activity[0], $activity[1], $activity[2]);
         }*/
 
-        //return view('home');
+        return view('home');
     }
 }

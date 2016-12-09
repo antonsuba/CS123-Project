@@ -5,24 +5,38 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Location;
 
 class LocationController extends Controller
 {
     //
 	public function saveLocation(Request $request){
-		$name= $request->name;
-		$lat = $request->lat;
-		$lng = $request->lng;
-		$requestArray = array($name,$lat,$lng);
-		$jsonData = json_encode($requestArray);
-		echo $jsonData;
-
-        $location = new Location;
+		$inputs = $request->input();
+        $name = $inputs['name'];
+		$lat = $inputs['lat'];
+		$lng = $inputs['lng'];
+		
+		$location = new Location;
 		$location->name = $name;
-		$location->lat = $lat;
-		$location->lng = $lng;
-        $location->save();
+        $location->lat = $lat;
+        $location->lng = $lng;
+		
+		$location->save();
+		
+		return response()->json("Location Saved");
+		/*
+        $location = new Location;
+        $location->name = $name;
+        $location->lat = $lat;
+        $location->lng = $lng;
+		
+		$location->save();
 		
         return response()->json("Location Saved");
+		*/
     }
+	
+	public function getLocations(Request $request){ //request just having suggestionID
+		
+	}
 }
