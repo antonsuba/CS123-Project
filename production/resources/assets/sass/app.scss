@@ -6,4 +6,21 @@
 @import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+/********** Mutli-Page ****************/
+body {
+    background-color: $body-bg;
+	color: $text-color;
+	font-family: $body-font;
+	font-size: $font-size-base;
+}
+
+
+/********** Landing Page ****************/
+.landing-body{
+	background: -webkit-linear-gradient(90deg, $gradient-left 10%, $gradient-right 90%); /* Chrome 10+, Saf5.1+ */ 
+	background: -moz-linear-gradient(90deg, $gradient-left 10%, $gradient-right 90%); /* FF3.6+ */ 
+	background: linear-gradient(90deg, $gradient-left 10%, $gradient-right 90%); /* W3C */ 
+}
