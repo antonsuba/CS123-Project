@@ -14,8 +14,8 @@ use App\Http\Controllers\Traits;
 // use Facebook\FacebookAuthorizationException;
 // use Facebook\FacebookRequestException;
 
-session_start();
-require_once __DIR__ . '/Facebook/autoload.php';
+// session_start();
+// require_once __DIR__ . '/Facebook/autoload.php';
 
 class HomeController extends Controller
 {   
@@ -96,6 +96,8 @@ class HomeController extends Controller
 
         //dd($jsonResponse['friends']['data']);
 
-        return $jsonResponse['friends']['data'];
+        return 1;
+
+        //return $jsonResponse['friends']['data'];
     }
 }

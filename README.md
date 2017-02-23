@@ -1,3 +1,3 @@
-# CS123-Project
+# Wild Card
 
-Suggestion website designed to help users explore new hobbies/activities
+Wild Card is an experience discovery website that suggests activities and places based on the user's tastes
