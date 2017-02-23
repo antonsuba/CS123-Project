@@ -56,10 +56,10 @@
     	Invite your friends
   	</div>
 	<div class="content">
-	@foreach($friendsList as $friend)
+	{{-- @foreach($friendsList as $friend)
 		<img class="ui circular image" src="{{ $friend['picture']['data']['url'] }}"/>
 		<p>{{ 	$friend['name'] }}</p>
-	@endforeach
+	@endforeach --}}
 	</div>
 	
 </div>
