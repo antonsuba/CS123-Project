@@ -52,6 +52,8 @@ Route::post('/suggest/create', 'SuggestionController@createSuggestion');
 | AJAX Routes
 |--------------------------------------------------------------------------
 */
+
+//Bookmark
 Route::post('/bookmark/add', 'BookmarkController@saveBookmark');
 
 Route::post('/bookmark/rate/', 'RecommendationEngine@updateSuggestionRating');
